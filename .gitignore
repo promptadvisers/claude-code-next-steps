@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+.vercel/
+.data/
+*.log
+.DS_Store
+/handoff/
+**/.temp/
+*.tsbuildinfo
+*.sqlite*
+~$*

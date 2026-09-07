@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "tools": [
+    "list_clients",
+    "client_evidence",
+    "client_brief"
+  ],
+  "readOnly": true,
+  "checks": [
+    "stdio initialization",
+    "tool discovery",
+    "Northstar brief with source ID"
+  ]
+}

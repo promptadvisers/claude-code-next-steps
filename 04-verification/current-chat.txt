@@ -1,0 +1,9 @@
+You
+
+What did Maya request? Cite the meeting source ID. What did the meeting leave undecided? Keep it to three short bullets.
+
+Claude
+
+- Maya requested a single onboarding checklist for the team, covering who owns each step (source_id: demo-transcript-001).
+- Left undecided: who will own each onboarding step.
+- Left undecided: the delivery date/timing for the checklist — to be confirmed when the draft is reviewed.

@@ -1,0 +1,38 @@
+{
+  "name": "clientdesk-course",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 4310",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 4310",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "cli": "tsx scripts/clientdesk.ts",
+    "mcp": "node scripts/mcp.mjs",
+    "test:http": "node scripts/verify-http.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "5.3.0",
+    "@fontsource-variable/manrope": "5.3.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.57.0",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  }
+}

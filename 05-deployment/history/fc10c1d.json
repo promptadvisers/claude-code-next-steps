@@ -1,0 +1,41 @@
+{
+  "status": "READY",
+  "target": "production",
+  "url": "https://clientdesk-course.vercel.app",
+  "source_commit": "fc10c1d05913dad2f86d09788803b8808b1d5bfb",
+  "source_directory": "03-build/clientdesk",
+  "recorded_at": "2026-09-06T21:04:37.009064+00:00",
+  "vercel_project": "clientdesk-course",
+  "build": {
+    "node": "24.x",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "result": "production build and TypeScript passed"
+  },
+  "database": {
+    "provider": "Supabase Postgres",
+    "region": "ca-central-1",
+    "identity": "anonymous authenticated, isolated per visitor",
+    "storage": "one versioned workspace document per owner"
+  },
+  "environment_names": [
+    "SUPABASE_URL",
+    "SUPABASE_ANON_KEY"
+  ],
+  "verification": [
+    "../04-verification/http-vercel.json",
+    "../04-verification/database-rls.json",
+    "../04-verification/browser.json",
+    "../04-verification/VERIFICATION.md"
+  ],
+  "limitations": [
+    "No named login, recovery or shared workspaces",
+    "No live Fireflies or Calendly fetch performed",
+    "Claude Code skill discovery is an instructor rehearsal step"
+  ],
+  "initial_deployment": {
+    "id": "dpl_DNmrSArycHvy2j2ewawGtvNGYWoy",
+    "note": "Vercel assigned the first project deployment to production automatically."
+  },
+  "publication_note": "Historical reference receipt. Private hosting identifiers omitted. Re-run checks for your own deployment."
+}

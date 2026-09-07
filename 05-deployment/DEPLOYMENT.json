@@ -1,0 +1,47 @@
+{
+  "status": "READY",
+  "target": "production",
+  "url": "https://clientdesk-course.vercel.app",
+  "source_commit": "a3e7f76f68fbc97a1f7edf36b9cf06e9cbbc83b0",
+  "source_directory": "03-build/clientdesk",
+  "recorded_at": "2026-09-06T21:27:43.274328+00:00",
+  "vercel_project": "clientdesk-course",
+  "build": {
+    "node": "24.x",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "result": "production build and TypeScript passed"
+  },
+  "database": {
+    "provider": "Supabase Postgres",
+    "region": "ca-central-1",
+    "identity": "anonymous authenticated, isolated per visitor",
+    "storage": "one versioned workspace document per owner"
+  },
+  "environment_names": [
+    "SUPABASE_URL",
+    "SUPABASE_ANON_KEY"
+  ],
+  "verification": [
+    "../04-verification/http-vercel.json",
+    "../04-verification/database-rls.json",
+    "../04-verification/browser.json",
+    "../04-verification/VERIFICATION.md",
+    "../04-verification/claude-chat.json",
+    "../04-verification/navy-contrast.json"
+  ],
+  "limitations": [
+    "No named login, recovery or shared workspaces",
+    "No live Fireflies or Calendly fetch performed",
+    "Claude Code skill discovery is an instructor rehearsal step"
+  ],
+  "initial_deployment": {
+    "id": "dpl_DNmrSArycHvy2j2ewawGtvNGYWoy",
+    "note": "Vercel assigned the first project deployment to production automatically."
+  },
+  "chat": "Personal subscription chat enabled only on the local Mac, disabled on Vercel and verified with GET/POST.",
+  "previous_release_receipt": "history/9b47464.json",
+  "theme": "deep navy and blue; verified on the live alias through actual computed styles",
+  "publication_note": "Historical reference receipt. Private hosting identifiers omitted. Re-run checks for your own deployment.",
+  "current_chat_guide": "HOSTED-CLAUDE-CHAT.md; this earlier receipt predates the hosted Claude extension."
+}

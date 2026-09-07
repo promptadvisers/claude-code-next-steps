@@ -1,0 +1,16 @@
+{
+  "origin": "https://clientdesk-course.vercel.app",
+  "at": "2026-09-06T21:02:45.000Z",
+  "checks": [
+    "load: supabase",
+    "unconfirmed save rejected",
+    "retry returns original; changed operation rejected",
+    "read-back persists one task",
+    "second session cannot read or mutate first-session task",
+    "concurrent writes preserve both changes",
+    "new client isolated between sessions",
+    "meeting reimport retains one source and stable local ID",
+    "cross-origin write rejected"
+  ],
+  "passed": true
+}

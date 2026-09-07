@@ -1,0 +1,15 @@
+{
+  "project": "clientdesk-chat",
+  "volumeMount": "/data",
+  "backendUrl": "https://clientdesk-chat-production.up.railway.app",
+  "appUrl": "https://clientdesk-course.vercel.app",
+  "model": "sonnet",
+  "healthCheck": "passed",
+  "providerAuthentication": "dedicated Claude subscription connected; login persisted across deployment",
+  "realModelAnswer": "verified directly and through live Vercel browser chat",
+  "vercelHostedChatEnabled": true,
+  "runtime": "@anthropic-ai/claude-code@2.1.263",
+  "command": "claude -p",
+  "localCliToolList": [],
+  "publication_note": "Historical reference receipt. Private hosting identifiers omitted. Re-run checks for your own deployment."
+}

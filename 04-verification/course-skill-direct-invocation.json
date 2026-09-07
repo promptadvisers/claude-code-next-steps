@@ -1,0 +1,9 @@
+{
+  "elapsedSeconds": 42.2,
+  "exitCode": 0,
+  "invocation": "/client-brief northstar 2026-09-06",
+  "result": "The CLI output already matches this structure. Here's the client brief:\n\n# Northstar Studio \u2014 prepared 2026-09-06\n\n## Meeting evidence\n- **Making onboarding feel effortless** \u2014 Maya requested an onboarding checklist before the next working session; no delivery date was agreed. *(Source: fireflies / demo-transcript-001, meeting 2026-09-03T14:00:00Z)*\n- **A direction for the new quarter** \u2014 Team agreed to review the brand workshop notes before starting onboarding work. *(Source: fireflies / demo-transcript-003, meeting 2026-08-27T14:00:00Z)*\n\n## Upcoming conversation\nOnboarding working session: 2026-09-09T14:00:00Z (America/Toronto)\n\n## Reviewed follow-ups\n- [ ] Share the brand workshop notes \u2014 owner Alex Morgan, due 2026-09-07. *(Source: meeting-003)*\n\n## Unknowns and proposed discussion\nNo owner or delivery date is recorded for the onboarding checklist Maya requested \u2014 needs confirming with the client. Any suggestion here is a proposal, not a commitment. Nothing was saved or sent by this export.\n",
+  "permissionDenials": [],
+  "isError": false,
+  "observation": "Direct user slash-command invocation returned a sourced brief; model-initiated Skill invocation correctly respected disable-model-invocation."
+}

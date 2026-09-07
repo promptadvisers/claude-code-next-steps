@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "at": "2026-09-06T20:47:57.796Z",
+  "checks": [
+    "owner can read own row",
+    "second user sees zero rows",
+    "second user cannot update owner row",
+    "forged owner insert rejected",
+    "unauthenticated access denied",
+    "owner version unchanged after attack"
+  ]
+}

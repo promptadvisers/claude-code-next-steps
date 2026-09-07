@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/opt/homebrew/bin/claude",
+    "--safe-mode",
+    "-p",
+    "--model",
+    "sonnet",
+    "--effort",
+    "low",
+    "--tools",
+    "",
+    "--system-prompt",
+    "Use only the supplied evidence. List facts and unknowns. Cite source IDs. Do not ask what to do."
+  ],
+  "exitCode": 0,
+  "answer": "**Facts (from demo-transcript-001):**\n- Maya Chen requested an onboarding checklist that shows who owns each step.\n- No owner was assigned for creating that checklist.\n- No delivery date was agreed upon.\n- No task has been saved or message sent regarding this request.\n\n**Unknowns:**\n- Who will own/prepare the checklist.\n- When it would be due.\n- Whether any follow-up action has since been taken (not evidenced in source).\n\nNo further action has been recorded in the provided evidence \u2014 nothing to report as completed or in progress.\n",
+  "stderr": "",
+  "earlierAttempts": [
+    "Default model exceeded 90 seconds.",
+    "Positional instructions plus piped context returned a clarification instead of the requested draft."
+  ]
+}

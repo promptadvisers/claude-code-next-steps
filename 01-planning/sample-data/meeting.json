@@ -1,0 +1,10 @@
+{
+  "client_id": "northstar",
+  "source": "fireflies",
+  "source_id": "demo-transcript-001",
+  "held_at": "2026-09-03T14:00:00.000Z",
+  "title": "Making onboarding feel effortless",
+  "summary": "Maya requested an onboarding checklist before the next working session. No delivery date was agreed.",
+  "transcript": "Maya Chen: The first week still feels a little scattered. Could we put together one onboarding checklist for the team?\n\nAlex Morgan: Yes. I’ll outline what it should cover so we can review it in our next working session.\n\nMaya Chen: Great. It should include who owns each step, too.\n\nAlex Morgan: Let’s confirm the owner and timing when we review the draft.",
+  "status": "available"
+}

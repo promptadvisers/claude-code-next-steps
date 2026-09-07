@@ -1,0 +1,1 @@
+{ "hooks": { "PostToolUse": [{ "matcher": "Edit|Write", "hooks": [{ "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/00-course-map/check-fixture.mjs\"" }] }] } }

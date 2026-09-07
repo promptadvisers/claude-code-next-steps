@@ -1,0 +1,16 @@
+{
+  "origin": "http://127.0.0.1:4312",
+  "at": "2026-09-07T16:08:02.275Z",
+  "checks": [
+    "load: local",
+    "unconfirmed save rejected",
+    "retry returns original; changed operation rejected",
+    "read-back persists one task",
+    "second session cannot read or mutate first-session task",
+    "concurrent writes preserve both changes",
+    "new client isolated between sessions",
+    "meeting reimport retains one source and stable local ID",
+    "cross-origin write rejected"
+  ],
+  "passed": true
+}

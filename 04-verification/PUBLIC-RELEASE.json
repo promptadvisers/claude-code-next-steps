@@ -1,0 +1,13 @@
+{
+  "verifiedAt": "2026-09-07T16:08:35.557838+00:00",
+  "scope": "Fresh public learner snapshot; no new hosted deployment",
+  "node": "24.19.0",
+  "appTests": 24,
+  "workerTests": 6,
+  "typechecks": "both passed",
+  "productionBuild": "passed",
+  "httpChecks": "passed with local SQLite on port 4312",
+  "secretScan": "gitleaks with archive traversal passed before publication",
+  "operatorMetadata": "private hosting identifiers and local linkage excluded",
+  "source": "Snapshot of the private course reference; historical receipts retain their original dates."
+}

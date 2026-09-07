@@ -1,0 +1,10 @@
+{
+  "elapsedSeconds": 13.1,
+  "exitCode": 0,
+  "projectSkillDiscovered": true,
+  "cliVersion": "2.1.263",
+  "isError": false,
+  "permissionDenials": [],
+  "observation": "The skill was registered and discovered. Model-driven invocation was rejected by disable-model-invocation, as configured. This was a manual-invocation boundary check, not a discovery failure. Direct slash invocation is recorded separately.",
+  "modelCommentaryOmitted": "The model incorrectly characterized the intended invocation restriction as failed discovery and suggested the wrong argument syntax. Those statements are not course instructions."
+}

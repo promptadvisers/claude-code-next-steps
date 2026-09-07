@@ -1,0 +1,18 @@
+{
+  "sampled_text_contrast_ratios": {
+    "body on canvas": 14.68,
+    "muted on canvas": 5.53,
+    "secondary on canvas": 4.7,
+    "button label": 9.42,
+    "header navigation": 9.31,
+    "chat header detail": 9.3,
+    "chat footnote": 4.91
+  },
+  "note": "Targeted palette checks; not a full accessibility certification.",
+  "hosted_colors": {
+    "header": "rgb(16, 33, 59)",
+    "canvas": "rgb(245, 247, 251)",
+    "primary": "rgb(27, 66, 144)"
+  },
+  "build": "Vercel production build and TypeScript passed"
+}

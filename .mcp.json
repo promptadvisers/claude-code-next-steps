@@ -1,0 +1,1 @@
+{"mcpServers":{"clientdesk":{"command":"node","args":["03-build/clientdesk/scripts/mcp.mjs"],"env":{"CLIENTDESK_URL":"http://127.0.0.1:4310"}}}}

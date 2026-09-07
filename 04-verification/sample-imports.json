@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "checks": [
+    "generated meeting validates and reimports once",
+    "generated calendar event validates and reimports once"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "verifiedAt": "2026-09-07T04:34:06.929494+00:00",
+  "appUrl": "https://clientdesk-course.vercel.app",
+  "provider": "Claude",
+  "command": "claude -p",
+  "cliVersion": "2.1.263",
+  "checks": {
+    "subscriptionSignIn": "passed",
+    "credentialPersistsAcrossRailwayDeploy": "passed",
+    "directNorthstarAnswer": "cites demo-transcript-001; owner and date not agreed",
+    "directAtlasAnswer": "acknowledges missing records",
+    "liveVercelNorthstarAnswer": "reads saved CRM meeting and task; separates agreed facts from task deadline",
+    "liveVercelAtlasAnswer": "no meeting records; no Northstar facts carried over",
+    "mobileViewport": {
+      "width": 390,
+      "height": 844,
+      "documentScrollWidth": 390,
+      "dialogWidth": 390,
+      "dialogHeight": 844,
+      "sendButtonBottom": 774
+    },
+    "appTests": 24,
+    "workerTests": 6,
+    "typechecks": "passed at source checkpoint",
+    "productionVercelBuild": "passed",
+    "actualCliToolList": []
+  },
+  "limits": "course access code required; subscription usage and hosting charges apply; chat drafts only; bounded selected-client context",
+  "publication_note": "Historical reference receipt. Private hosting identifiers omitted. Re-run checks for your own deployment."
+}

@@ -1,0 +1,38 @@
+{
+  "surface": "Codex internal browser",
+  "origin": "https://clientdesk-course.vercel.app",
+  "passed": true,
+  "desktop": [
+    "pre-call brief shows sourced evidence, saved work and unanswered question",
+    "proposal to exact review to save completed",
+    "saved task remains after browser reload",
+    "completion and reopening update list and counts",
+    "contact search Leila opens Atlas empty state"
+  ],
+  "phone": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "document_width": 390,
+    "keyboard_path": "Prepare follow-up (Enter), Review follow-up (Enter), Edit proposal (Tab) focuses Save follow-up",
+    "focused_save_bounds": {
+      "left": 227.8125,
+      "right": 368,
+      "top": 777.8125,
+      "bottom": 821.8125
+    },
+    "note": "Review content scrolls vertically. Keyboard focus scrolls the save control into view. No second task was saved in this check.",
+    "escape": "closed dialog"
+  },
+  "local_regression": [
+    "Completed filter followed by search to Atlas does not leak completed wording into Open follow-ups",
+    "ArrowRight changes selected client tab and moves focus"
+  ],
+  "screenshots": [
+    "screenshots/workspace-desktop-vercel.png",
+    "screenshots/brief-desktop-vercel.png",
+    "screenshots/client-phone-vercel.png",
+    "screenshots/review-phone-vercel.png"
+  ]
+}

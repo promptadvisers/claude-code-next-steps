@@ -1,0 +1,6 @@
+Fictional course example: Northstar Studio
+Source ID: demo-transcript-001
+Meeting: Making onboarding feel effortless
+Maya Chen asked for an onboarding checklist showing who owns each step.
+No owner or delivery date was agreed for preparing the checklist.
+There is no evidence that a task has been saved or a message sent.

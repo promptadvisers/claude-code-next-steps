@@ -1,0 +1,8 @@
+{
+  "client_id": "northstar",
+  "source_id": "demo-event-001",
+  "starts_at": "2026-09-09T14:00:00.000Z",
+  "timezone": "America/Toronto",
+  "status": "active",
+  "title": "Onboarding working session"
+}

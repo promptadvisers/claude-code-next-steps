@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "cli_version": "2.1.263",
+  "authentication": "claude.ai subscription (Max)",
+  "api_key_fallback": false,
+  "tests": 21,
+  "http_checks": [
+    "foreign origin rejected",
+    "missing origin rejected",
+    "oversized question rejected; canceled request released the busy slot"
+  ],
+  "browser_checks": [
+    "real selected-client answer received",
+    "second conversational turn cited demo-transcript-001",
+    "Cedar has a separate empty conversation",
+    "returning to Northstar restores its conversation",
+    "stop keeps question and displays stopped status",
+    "phone viewport and document both390px; composer bounded within844px height"
+  ],
+  "live_inference_note": "Uses subscription allowance. Paid extra-usage account settings were not changed or verified.",
+  "fixes": [
+    "accept CLI JSON event array as well as single result",
+    "use original source IDs in supplied evidence",
+    "separate send/stop button identities and synchronous in-flight guard"
+  ],
+  "hosted_checks": [
+    "GET /api/chat reports unavailable",
+    "POST /api/chat rejects with 403",
+    "homepage returns 200"
+  ],
+  "production_build": "passed"
+}

@@ -1,0 +1,21 @@
+:root {
+  --paper: #f5f7fb;
+  --white: #fff;
+  --ink: #10233f;
+  --muted: #536580;
+  --faint: #5f7089;
+  --line: #dce4ef;
+  --soft: #edf2f9;
+  --accent: #1b4290;
+  --accent-dark: #12336f;
+  --accent-tint: #edf3ff;
+  --green: #34766e;
+  --display: "Manrope Variable", sans-serif;
+  --body: "DM Sans Variable", sans-serif;
+  --radius: 10px;
+  --navy: #10213b;
+  --navy-border: #253b5a;
+  --highlight: #88acff;
+  --danger-tint: #fff0ee;
+  --shadow: 0 20px 70px #102b4d16;
+}
