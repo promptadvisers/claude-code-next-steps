@@ -1,0 +1,14 @@
+{
+  "edition": "160-slide plain-English hosting edition",
+  "updated": "2026-09-07",
+  "slides": 160,
+  "deck": "slides/ClientDesk_Course_End_to_End.pptx",
+  "deckSha256": "99b6640e2598a26ca84944ec9e187c6e5ad7df802be9d4b909c7c2a1e50f86c8",
+  "hostingGuide": "05-deployment/HOSTING-IN-PLAIN-ENGLISH.md",
+  "newTeachingSlides": [
+    111,
+    114,
+    118
+  ],
+  "scope": "Course materials update only. No new app deployment or app test run. Earlier verification receipts retain their original scope and dates."
+}

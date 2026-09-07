@@ -89,6 +89,8 @@ An **API** is an interface programs call. A **CLI** lets you request something t
 
 ## Claude chat, in plain English
 
+A **worker** is a small helper program that handles a request behind the scenes. Railway provides its online computer. Our helper receives a client question, runs Claude and returns the answer. Start with [Hosting in plain English](05-deployment/HOSTING-IN-PLAIN-ENGLISH.md) for the diagram, hosting vocabulary and explanation of the different access codes.
+
 **Headless means Claude runs without its usual interactive conversation screen.** The app sends a question and context, Claude returns a result, and the app displays it. `-p` is Claude Code's print-mode option:
 
 ```sh
@@ -100,7 +102,7 @@ The working integration adds controlled input, structured output, timeouts and t
 | Mode | Where Claude runs | Setup |
 | --- | --- | --- |
 | Local chat | Your computer, using your signed-in Claude Code account | [Local chat guide](05-deployment/LOCAL-CLAUDE-CHAT.md); opt in with `CLIENTDESK_LOCAL_CHAT=1` in the app's private `.env.local` |
-| Hosted course chat | A separate Railway worker, reached through the Vercel app | [Hosted chat guide](05-deployment/HOSTED-CLAUDE-CHAT.md); persistent authentication, service token and course access code |
+| Hosted course chat | A separate Railway worker, reached through the Vercel app | [Plain-English explanation](05-deployment/HOSTING-IN-PLAIN-ENGLISH.md), then the [setup guide](05-deployment/HOSTED-CLAUDE-CHAT.md) |
 
 The local subprocess route is disabled on Vercel. The hosted Railway route is a separate implementation and is available on phone and desktop. **Print mode still consumes account usage allowance; it is not free or unlimited inference.** Check your account's current plan and extra-usage settings before running your own service.
 

@@ -41,6 +41,8 @@ Leave the final command running and open [http://127.0.0.1:4310](http://127.0.0.
 | [Start here](00-course-map/START-HERE.md): project orientation | [End-to-end guide](00-course-map/END-TO-END.md): the full ordered route |
 | [Slides](slides/ClientDesk_Course_End_to_End.pptx): optional preview | [Exact prompts](00-course-map/COURSE-PROMPTS.md): requests to use with Claude |
 
+If hosting vocabulary is new to you, the optional [plain-English hosting guide](05-deployment/HOSTING-IN-PLAIN-ENGLISH.md) explains the worker, saved folder and access codes before the setup instructions.
+
 You do not need to memorize the source or complete the hosted deployment before joining. The files are here so you can follow the explanation, repeat a step and continue afterward.
 
 ## About the shared demo
