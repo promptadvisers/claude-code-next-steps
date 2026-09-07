@@ -74,3 +74,9 @@ Run `npm test` and `npm run typecheck` in both source folders, plus `npm run bui
 Chat history remains in page memory, separately by client. Saved CRM data stays in Supabase. The supplied context is bounded; chat does not search arbitrary uploaded files or retrieve new meetings from Fireflies on demand.
 
 Official references: [Claude print mode](https://code.claude.com/docs/en/headless), [Claude authentication](https://code.claude.com/docs/en/authentication), [CLI flags](https://code.claude.com/docs/en/cli-reference), [Railway deployment](https://docs.railway.com/cli/deploying), [Railway volumes](https://docs.railway.com/volumes).
+
+## Recover a missing or expired worker login
+
+A reachable `/health` endpoint proves the worker process is running; it does not prove Claude can answer. If the app says the host must reconnect, run the documented Railway login helper with the intended course account, then verify a real question through Vercel.
+
+The worker lets Claude refresh an expired access token when refresh credentials are present. It persists only a changed, valid renewal, never an empty/logout state from a failed process. A request must not overwrite a newer account reconnect. Tests cover these cases in `03-build/clientdesk-chat/tests/credentials.test.ts`. Credentials remain private on the volume; test reports must contain only outcomes, not token values.

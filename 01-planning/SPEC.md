@@ -58,3 +58,7 @@ Use the Claude Code print mode on a dedicated Railway service while keeping the 
 Allow one concurrent reply, twenty requests per workspace per hour, thirty per visitor per hour, and one hundred service requests per UTC day. Persist counts on the volume; apply sixty access attempts per minute globally. Cancel after eighty-five seconds on Railway and propagate browser cancellation. Keep questions on errors and never log prompt text. Preserve local Claude as an independent course example.
 
 The full build prompts, account setup, test criteria and actual deployment checkpoint are in `05-deployment/HOSTED-CLAUDE-CHAT.md`. Hosted account authentication and a real end-to-end Vercel answer must pass before claiming the hosted chat works.
+
+### Hosted login recovery
+
+A healthy Railway process can still have an invalid Claude login. Explain that account reconnection is required when saved credentials are missing or empty. Allow the CLI to refresh expired access credentials. Preserve the persistent login if a failed subprocess writes empty/logout state, and do not overwrite a newer login completed during a request. Validate renewal persistence and private file permissions with regression tests; verify an actual hosted answer after reconnecting.

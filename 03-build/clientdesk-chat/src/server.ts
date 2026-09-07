@@ -2,6 +2,7 @@ import { createServer, type IncomingMessage } from "node:http";
 import { mkdirSync } from "node:fs";
 import { z } from "zod";
 import { askClaude } from "./claude.ts";
+import { ClaudeLoginRequired } from "./credentials.ts";
 import { Quotas, LimitError, secretMatches } from "./guard.ts";
 
 const requestSchema = z.object({
@@ -56,6 +57,10 @@ const server = createServer(async (req, res) => {
     reply({ answer, mode: "hosted-claude" });
   } catch (error) {
     if (error instanceof LimitError) return reply({ error: error.message }, 429);
+    if (error instanceof ClaudeLoginRequired) {
+      console.error(JSON.stringify({ event: "chat_failed", category: "account_reconnect_required" }));
+      return reply({ code: "account_reconnect_required", error: "The host needs to reconnect the course Claude account." }, 503);
+    }
     // Never put prompts, transcripts, subprocess stderr or credentials in logs.
     console.error(JSON.stringify({ event: "chat_failed", category: controller.signal.aborted ? "cancelled" : "provider_unavailable" }));
     reply({ error: "Claude is unavailable right now. Your question has been kept. The host may need to reconnect its account." }, 503);

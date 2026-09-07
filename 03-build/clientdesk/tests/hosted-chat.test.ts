@@ -39,3 +39,11 @@ test("missing access never reaches Railway and provider errors do not leak detai
     await assert.rejects(() => askHostedClaude("prompt", "owner", "code", "ip", new AbortController().signal, env), (e: unknown) => e instanceof Error && !e.message.includes("sensitive"));
   } finally { global.fetch = original; }
 });
+test("a missing hosted account explains the required reconnect without exposing backend diagnostics", async () => {
+  const original = global.fetch;
+  global.fetch = async () => Response.json({code:"account_reconnect_required",error:"private provider diagnostic"},{status:503});
+  try {
+    await assert.rejects(() => askHostedClaude("prompt","owner","code","visitor",new AbortController().signal,env),
+      (e: unknown) => e instanceof Error && e.message.includes("host needs to reconnect") && !e.message.includes("private"));
+  } finally { global.fetch = original; }
+});

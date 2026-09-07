@@ -1,0 +1,28 @@
+{
+  "verifiedAt": "2026-09-07T19:19:03.671582+00:00",
+  "issue": "Course code accepted but saved Claude login was invalid",
+  "fix": [
+    "reconnected dedicated subscription",
+    "allow CLI refresh instead of auth-status preflight rejection",
+    "never persist empty/logout credentials",
+    "preserve a newer reconnect",
+    "explain reconnect requirement in hosted errors"
+  ],
+  "tests": {
+    "app": 25,
+    "worker": 9,
+    "typechecks": "passed",
+    "productionBuild": "passed"
+  },
+  "liveCheck": {
+    "url": "https://clientdesk-course.vercel.app",
+    "httpStatus": 200,
+    "responseSeconds": 3.4,
+    "sourceCited": "demo-transcript-001",
+    "unknownsPreserved": [
+      "owner",
+      "delivery timing"
+    ]
+  },
+  "secrets": "No credential values included"
+}

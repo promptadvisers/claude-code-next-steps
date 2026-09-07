@@ -31,6 +31,8 @@ export async function askHostedClaude(
   } catch { throw new DomainError("Claude could not be reached. Your question has been kept.", 503); }
   const body = await response.json().catch(() => ({}));
   if (!response.ok) {
+    if (response.status === 503 && body.code === "account_reconnect_required")
+      throw new DomainError("The host needs to reconnect the course’s Claude account. Your question has been kept.", 503);
     const allowed: Record<number, string> = {
       403: "Enter the course chat access code.",
       429: "Chat is busy or its demo allowance is used for now. Please try again later.",

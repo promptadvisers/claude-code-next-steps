@@ -58,3 +58,7 @@ Expanded the deck from 133 to 157 slides and added 00-course-map/END-TO-END.md. 
 ## Public course companion — 7 September 2026
 
 Prepared this repository as a clean learner snapshot of the completed ClientDesk reference. It includes the full plan/spec/design, app and worker, migrations, prompts, rules and skill, current slides, and pre-course setup guide. Historical local commit IDs in earlier entries describe the original development repository, not commits in this snapshot. Private hosting identifiers are replaced with placeholders in deployment examples and receipts. Learners must use their own projects and repeat verification.
+
+## Hosted login recovery — 7 September 2026
+
+The live UI returned a generic provider-unavailable error after a valid course code was entered. Railway was healthy, but its saved Claude credentials were empty/expired and auth status was signed out. Reconnected the dedicated account through the existing authorized browser session. Identified that the worker could persist invalid subprocess credential state unconditionally; added validated renewal persistence, protection for newer logins and an actionable reconnect error. Removed the auth-status preflight so an expired access token with refresh credentials can reach the CLI renewal flow. Regression checks: 25 app tests, 9 worker tests, both typechecks and production build passed. Live post-deploy verification is recorded separately.
