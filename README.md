@@ -124,7 +124,7 @@ The worker has no database credentials. Claude receives a bounded snapshot from 
 | [.claude](.claude/skills/client-brief/SKILL.md) | Reusable client-brief skill, examples, template, interface rule and optional hook configuration |
 | [BUILD-LOG.md](BUILD-LOG.md) | Actual implementation decisions, fixes and verification history |
 
-The prompts are reusable teaching prompts, not a claimed verbatim transcript of development. This public course companion contains the sanitized source and documents, plus the current [157-slide PowerPoint](slides/ClientDesk_Course_End_to_End.pptx). Instructor authoring files, previous decks, private session notes and account credentials remain in the private archive.
+The prompts are reusable teaching prompts, not a claimed verbatim transcript of development. This public course companion contains the sanitized source and documents, plus the current [160-slide PowerPoint](slides/ClientDesk_Course_End_to_End.pptx). Instructor authoring files, previous decks, private session notes and account credentials remain in the private archive.
 
 ## Connect the CLI, MCP and reusable skill
 

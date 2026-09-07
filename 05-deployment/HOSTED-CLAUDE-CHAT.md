@@ -4,6 +4,8 @@ The CRM stays on Vercel. A dedicated Railway service runs **Claude Code in print
 
 Verified release: the dedicated Claude subscription is connected on Railway and the hosted chat is live at https://clientdesk-course.vercel.app. A real browser answer used Northstar’s saved meeting and task records, cited demo-transcript-001, and separated the task deadline from what was agreed in the meeting. Switching to Atlas correctly reported that no meeting records exist. The panel was checked at desktop and 390 × 844 phone width. Authentication survived a fresh Railway deployment. See 04-verification/hosted-claude-live.json for the sanitized receipt.
 
+New to hosting? Start with [Hosting in plain English](HOSTING-IN-PLAIN-ENGLISH.md) for the worker diagram, terminology and an explanation of the separate access codes.
+
 ## Recreate it in plain English
 
 > Add a hosted Ask Claude panel to ClientDesk. Keep the CRM on Vercel and the database on Supabase. Create a separate Railway service that installs Claude Code and runs it in print mode. Before every question, load the visitor’s authenticated workspace and choose only the client they selected. Give Claude those records and the recent conversation, then show its answer in the chat panel. Keep the original local Claude option available for the course.

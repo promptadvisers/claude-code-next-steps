@@ -502,37 +502,37 @@ First add a local Ask Claude panel for the selected client. Use the signed-in Cl
 
 **Check:** One client’s evidence goes in; a sourced answer or a useful error comes back.
 
-## Slide 113 — Build the hosted Claude worker
+## Slide 115 — The program that handles chat
 
 **On screen:** Open the worker Dockerfile, src/claude.ts, src/server.ts and src/guard.ts. Compare with 05-deployment/HOSTED-CLAUDE-CHAT.md.
 
-Create 03-build/clientdesk-chat from the hosted chat guide. Install the pinned Claude Code version in its Docker image. Accept authenticated requests, run Claude with the supplied client evidence and no tools, and return a validated answer. Add Stop, timeouts and request limits.
+Create the chat helper in 03-build/clientdesk-chat using the hosted chat guide. Give it only the selected client’s records and question. Let approved requests reach Claude and return a checked answer. Prevent it from changing files or saving tasks. Add a Stop button, a time limit and usage limits.
 
-**Why it works:** Separation: keeps Claude in its own service. Behavior: defines success and failure.
+**Why it works:** Clear job: answers one client question. Boundaries: controls access and actions.
 
-**Check:** Worker tests and type checks pass; the restricted request is inspected.
+**Check:** A question returns an answer. Invalid requests fail. Stop cancels the work.
 
-## Slide 114 — Give the worker a home on Railway
+## Slide 116 — A home for the chat helper on Railway
 
 **On screen:** In Railway create a project and service from your repository, select the worker root, attach the volume and set the variables. Record your own service URL.
 
-Help me create a dedicated Railway service from 03-build/clientdesk-chat. Use its Dockerfile, add a persistent volume mounted at /data, and generate a service domain. Configure CHAT_SERVICE_TOKEN and CHAT_ACCESS_CODE with separate private values.
+Help me run 03-build/clientdesk-chat on Railway using the hosted chat guide. Keep its Claude login and usage counts in a saved folder that survives updates. Give the helper a web address. Create separate private values for the app to connect and for learners to access chat.
 
-**Why it works:** Volume: preserves login and usage counters. Separation: uses two different access credentials.
+**Why it works:** Saved folder: keeps the login after an update. Separate access: the app and learners have different codes.
 
-**Check:** The service is running with /data mounted and its private settings present.
+**Check:** The helper is running, its web address is recorded, and the saved folder is attached.
 
-## Slide 115 — Sign Claude in on the Railway server
+## Slide 117 — Claude needs a login on its new computer
 
 **On screen:** Ask Claude to install the Railway CLI, sign in and link the worker folder to the intended service. Verify with railway status. Then run railway ssh node scripts/login.mjs and complete its browser authorization.
 
-Guide me through signing the Railway worker into the intended Claude subscription. Use the supplied login helper and keep credentials on the /data volume. Verify a real answer, then redeploy the worker and verify sign-in still works.
+Help me sign in to the intended Claude account on Railway using the supplied login helper. Keep the login in the saved /data folder. Ask a sample question and check the answer. Deploy the helper again, then repeat the question to confirm it still works.
 
-**Why it works:** Location: signs in where Claude actually runs. Persistence: tests a fresh deployment.
+**Why it works:** Right computer: signs in where Claude runs. Repeat check: confirms an update keeps access.
 
-**Check:** A real sourced answer works before and after worker redeployment.
+**Check:** A real answer works before and after deploying the helper again.
 
-## Slide 117 — Prove the full hosted conversation
+## Slide 120 — Prove the full hosted conversation
 
 **On screen:** Open your deployed app in a fresh browser workspace. Use fictional sample data. Enter the private course code only in the chat panel.
 
@@ -542,7 +542,7 @@ At my Vercel URL, ask what Maya requested and require the meeting source ID. Swi
 
 **Check:** Northstar cites demo-transcript-001; Atlas has no invented meeting; task save remains separate.
 
-## Slide 123 — The skill creation prompt
+## Slide 126 — The skill creation prompt
 
 **On screen:** Open .claude/skills and paste the prompt into the project conversation.
 
@@ -552,7 +552,7 @@ Turn our client-brief method into a project skill named client-brief. It should 
 
 **Check:** The skill folder contains an entry point and the promised supporting files.
 
-## Slide 125 — Why the name and hints matter
+## Slide 128 — Why the name and hints matter
 
 **On screen:** Open the top of SKILL.md and then its slash-command hint.
 
@@ -562,7 +562,7 @@ Review the skill metadata as if you were a new teammate. Explain how to discover
 
 **Check:** The name, description, argument hint, and invocation setting agree.
 
-## Slide 127 — The skill’s working instructions
+## Slide 130 — The skill’s working instructions
 
 **On screen:** Read the instructions aloud as if you had never seen the course. Remove any step that relies on hidden chat history.
 
@@ -570,7 +570,7 @@ Validate the client and brief date. Read the client and available meeting eviden
 
 **Check:** File: .claude/skills/client-brief/SKILL.md, below its metadata.
 
-## Slide 128 — Run the skill with the demo date
+## Slide 131 — Run the skill with the demo date
 
 **On screen:** Start a fresh Claude Code conversation from Walkthrough Assets. Type /client-brief and inspect its argument hint.
 
@@ -580,7 +580,7 @@ Open the prepared demo context and read its date. Type /client-brief with norths
 
 **Check:** A known client returns a sourced brief; an unknown client asks for a correction.
 
-## Slide 134 — Add a hook with a clear purpose
+## Slide 137 — Add a hook with a clear purpose
 
 **On screen:** Use the exercise copy. Run 00-course-map/test-hook.mjs before enabling the example.
 
@@ -590,7 +590,7 @@ Review 00-course-map/check-fixture.mjs and .claude/settings.example.json. Explai
 
 **Check:** The valid event passes and the invalid meeting is reported. The checker makes no network request.
 
-## Slide 139 — The fresh-session rehearsal
+## Slide 142 — The fresh-session rehearsal
 
 **On screen:** Start a new Claude Code conversation in a separate working copy. Ask a teammate to follow the README.
 
@@ -600,7 +600,7 @@ Read this release’s README in a fresh conversation. Follow its setup and run t
 
 **Check:** The teammate finishes or produces a reproducible missing-information report.
 
-## Slide 146 — Prepare the release in plain English
+## Slide 149 — Prepare the release in plain English
 
 **On screen:** Open RELEASE.md and review the file list before approving repository changes.
 
@@ -610,7 +610,7 @@ Prepare a reviewed release of the app and client-brief skill. Include setup, one
 
 **Check:** The release points to one version and a setup another person can follow.
 
-## Slide 147 — A teammate starts from a known version
+## Slide 150 — A teammate starts from a known version
 
 **On screen:** Use a prepared private demo repository. Replace the placeholder URL with its real address in the teaching copy; do not invent a public course repository.
 

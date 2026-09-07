@@ -132,11 +132,13 @@ Follow `05-deployment/LOCAL-CLAUDE-CHAT.md`: sign into the intended local Claude
 
 **Check:** Northstar returns a sourced answer and Atlas acknowledges no meeting notes. Print mode does not itself remove tools or enforce read-only behavior; the reference worker implements those restrictions separately. Usage counts against the connected account and its billing settings.
 
-## 12. Build and deploy the Railway chat worker
+## 12. Build and deploy the Railway chat helper
+
+A worker is a small program handling a request behind the scenes. Our helper receives a client question, runs Claude and returns the answer. Railway supplies the online computer. Read [Hosting in plain English](../05-deployment/HOSTING-IN-PLAIN-ENGLISH.md) before the settings below. It explains the diagram, software package, saved folder and different access codes.
 
 Use `05-deployment/HOSTED-CLAUDE-CHAT.md` as the full worker specification. Source: `03-build/clientdesk-chat`. Its Dockerfile defines the deployment environment. The dependency lock pins Claude Code 2.1.263; the reference selects Sonnet and low effort.
 
-> Build the dedicated Claude worker with authenticated requests, selected-client evidence, isolated settings, no tools or MCP, no API-key fallback, validated final output, cancellation, timeouts and the documented request limits. Run its tests and type checks. Inspect the actual tool configuration before connecting an account.
+> Create the chat helper using the hosted chat guide. Give it only the selected client’s records and question. Let approved requests reach Claude and return a checked answer. Prevent it from changing files or saving tasks. Add Stop, a time limit and usage limits. Run the supplied checks and explain their results before connecting an account.
 
 From the worker folder run `npm ci`, `npm test`, `npm run typecheck`, and `node --import tsx scripts/inspect-tools.mjs`. The inspection uses a fake local provider; it verifies protocol and tool restrictions, not subscription access.
 

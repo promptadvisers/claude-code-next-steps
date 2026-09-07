@@ -1,6 +1,6 @@
 # Instructor script
 
-157 slides · expanded end-to-end edition · six labs. Speaker-note timings are estimates, not a rehearsed duration. Additional deployment walkthroughs require a fresh pacing rehearsal. Prompts are also collected in COURSE-PROMPTS.md.
+160 slides · expanded end-to-end edition · six labs. Speaker-note timings are estimates, not a rehearsed duration. Additional deployment walkthroughs require a fresh pacing rehearsal. Prompts are also collected in COURSE-PROMPTS.md.
 
 ## 1. Claude Code for Everyone: Next Steps
 
@@ -417,13 +417,13 @@ ClientDesk, from screen to services
 SLIDE 21 | Build it for real | 0:22–0:23 (1 min)
 
 SAY
-Read this as a cross-section. The browser is the screen. Vercel runs the web app and checks each request. Supabase holds the saved workspace records. For chat, Vercel selects only the chosen client’s records and sends a bounded evidence packet to Railway. Railway runs Claude Code in print mode, which contacts the Claude service. The answer returns along the same path. GitHub stores the source used to deploy; it is not in the live request path. Sample imports work without provider accounts. Live Fireflies and Calendly reads are an optional addition.
+Read this as a cross-section. The browser is the screen. Vercel runs the web app and checks each request. Supabase holds the saved workspace records. For chat, Vercel selects only the chosen client’s records and sends a bounded evidence packet to Railway. Railway runs Claude Code in print mode, which contacts the Claude service. The answer returns along the same path. GitHub stores the source used to deploy; it is not in the live request path. Sample imports work without provider accounts. Live Fireflies and Calendly reads are an optional addition. A worker simply means the helper program handling chat behind the scenes. We will unpack that part before setting it up.
 
 ON SCREEN
 Trace a task save from the browser to Supabase. Then trace a chat question through Railway and back. Ask learners to identify where each piece runs.
 
 CHECK BEFORE CONTINUING
-Learners can locate the screen, saved records, app server and Claude worker.
+Learners can locate the screen, saved records and the program that runs Claude.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -2412,11 +2412,30 @@ IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
 
 TRANSITION
+A worker is a program with a job
+
+## 111. A worker is a program with a job
+
+SLIDE 111 | Build it for real | 2:33:30–2:34:30 (1 min)
+
+SAY
+A worker is a small program that handles a request behind the scenes. Here its job is to receive a chat question, give Claude the selected client’s records and return an answer. Railway supplies the online computer where this helper program runs. Claude Code is a program installed on that computer, and it contacts Claude’s online service. Follow the arrows from left to right, then follow the answer back. The Vercel app gets the client records from Supabase before sending them. The worker does not search the whole database. The app can stay available when my laptop is closed because these programs run on hosted computers.
+
+ON SCREEN
+Trace “What did Maya request?” across the diagram. Point to the helper program and distinguish it from the company hosting its computer.
+
+CHECK BEFORE CONTINUING
+Learners can explain the worker’s job and say where the answer appears.
+
+IF THE DEMO STALLS
+Open the hosting guide and trace the same example on its diagram.
+
+TRANSITION
 The same chat, on two computers
 
-## 111. The same chat, on two computers
+## 112. The same chat, on two computers
 
-SLIDE 111 | Build it for real | 2:33:30–2:34 (0.5 min)
+SLIDE 112 | Build it for real | 2:34:30–2:35 (0.5 min)
 
 SAY
 The hosted app cannot start a program on your laptop. Railway provides a separate server where our Claude worker runs. The visitor still opens the Vercel app. We now configure that second deployment and test the complete path.
@@ -2425,7 +2444,7 @@ ON SCREEN
 Open the live reference at clientdesk-course.vercel.app and identify the Ask Claude panel. Then return to your own deployment setup.
 
 CHECK BEFORE CONTINUING
-Learners distinguish the public app URL from the private worker endpoint.
+Learners can distinguish the app they open from the helper that runs Claude.
 
 IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
@@ -2433,9 +2452,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 What the chat knows about a client
 
-## 112. What the chat knows about a client
+## 113. What the chat knows about a client
 
-SLIDE 112 | Build it for real | 2:34–2:35 (1 min)
+SLIDE 113 | Build it for real | 2:35–2:36 (1 min)
 
 SAY
 The app loads the current authenticated workspace before each turn. It selects this client and sends a bounded packet. Meeting summaries and transcripts are capped at 3,000 characters each; the last six conversation messages provide recent context. Claude is not directly browsing the database. Ask it to acknowledge missing or shortened information. A saved task deadline is not proof the meeting agreed that deadline.
@@ -2450,98 +2469,136 @@ IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
 
 TRANSITION
-Build the hosted Claude worker
+The hosting words, in everyday language
 
-## 113. Build the hosted Claude worker
+## 114. The hosting words, in everyday language
 
-SLIDE 113 | Build it for real | 2:35–2:36 (1 min)
+SLIDE 114 | Build it for real | 2:36–2:37 (1 min)
 
 SAY
-A worker is a server program that handles the chat request. Docker describes the environment it needs: Node, certificates and Claude Code. Our reference pins Claude Code 2.1.263. Its child process has isolated settings, no tools or MCP and no API fallback. Send evidence through the program input, not by constructing a shell command from user text.
+Think of preparing another computer to run our helper. The Dockerfile is the recipe and the Docker image is the resulting package. Pinning a version keeps that recipe consistent. A persistent volume is the saved folder we attach separately so a deployment does not erase the Claude login. In Railway the folder is called /data. We ask Claude to prepare these pieces using the supplied guide. You do not have to write the packaging instructions yourself.
+
+ON SCREEN
+Show the Dockerfile and Railway’s volume setting with private values hidden. Point to the exact version and the /data folder.
+
+CHECK BEFORE CONTINUING
+Learners can explain why the helper needs both a software package and a saved folder.
+
+IF THE DEMO STALLS
+Open the hosting guide and trace the same example on its diagram.
+
+TRANSITION
+The program that handles chat
+
+## 115. The program that handles chat
+
+SLIDE 115 | Build it for real | 2:37–2:38 (1 min)
+
+SAY
+This prompt describes behavior we can observe. The guide supplies the exact package, version and settings. Approved means the app supplies the private service credential and the visitor supplies the course code. A checked answer means our program confirms Claude finished successfully and returned a usable result. It does not guarantee every fact is correct: we still compare the answer with its meeting source. Ask Claude to run the supplied tests and explain their results in ordinary language.
 
 ON SCREEN
 Open the worker Dockerfile, src/claude.ts, src/server.ts and src/guard.ts. Compare with 05-deployment/HOSTED-CLAUDE-CHAT.md.
 
 EXACT PROMPT
-Create 03-build/clientdesk-chat from the hosted chat guide. Install the pinned Claude Code version in its Docker image. Accept authenticated requests, run Claude with the supplied client evidence and no tools, and return a validated answer. Add Stop, timeouts and request limits.
+Create the chat helper in 03-build/clientdesk-chat using the hosted chat guide. Give it only the selected client’s records and question. Let approved requests reach Claude and return a checked answer. Prevent it from changing files or saving tasks. Add a Stop button, a time limit and usage limits.
 
 WHY THIS PROMPT
-Separation: keeps Claude in its own service.
-Behavior: defines success and failure.
+Clear job: answers one client question.
+Boundaries: controls access and actions.
 
 CHECK BEFORE CONTINUING
-Worker tests and type checks pass; the restricted request is inspected.
+A question returns an answer. Invalid requests fail. Stop cancels the work.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
 
 TRANSITION
-Give the worker a home on Railway
+A home for the chat helper on Railway
 
-## 114. Give the worker a home on Railway
+## 116. A home for the chat helper on Railway
 
-SLIDE 114 | Build it for real | 2:36–2:37 (1 min)
+SLIDE 116 | Build it for real | 2:38–2:39 (1 min)
 
 SAY
-A volume is storage that survives a replacement of the running container. Our worker uses it for dedicated sign-in and quota counters. The service token is for Vercel to call Railway. The course code is entered by an approved visitor. Do not use one value for both.
+We are putting our helper on an online computer. In Railway create a service from the chat folder and use the supplied Dockerfile. Attach a persistent volume at /data. Generate the service’s web address. The guide names the private settings exactly: CHAT_SERVICE_TOKEN for app-to-helper access and CHAT_ACCESS_CODE for learner access. Keep their values different. Railway’s running status only proves the program started. We will test an actual Claude answer after signing in.
 
 ON SCREEN
 In Railway create a project and service from your repository, select the worker root, attach the volume and set the variables. Record your own service URL.
 
 EXACT PROMPT
-Help me create a dedicated Railway service from 03-build/clientdesk-chat. Use its Dockerfile, add a persistent volume mounted at /data, and generate a service domain. Configure CHAT_SERVICE_TOKEN and CHAT_ACCESS_CODE with separate private values.
+Help me run 03-build/clientdesk-chat on Railway using the hosted chat guide. Keep its Claude login and usage counts in a saved folder that survives updates. Give the helper a web address. Create separate private values for the app to connect and for learners to access chat.
 
 WHY THIS PROMPT
-Volume: preserves login and usage counters.
-Separation: uses two different access credentials.
+Saved folder: keeps the login after an update.
+Separate access: the app and learners have different codes.
 
 CHECK BEFORE CONTINUING
-The service is running with /data mounted and its private settings present.
+The helper is running, its web address is recorded, and the saved folder is attached.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
 
 TRANSITION
-Sign Claude in on the Railway server
+Claude needs a login on its new computer
 
-## 115. Sign Claude in on the Railway server
+## 117. Claude needs a login on its new computer
 
-SLIDE 115 | Build it for real | 2:37–2:38 (1 min)
+SLIDE 117 | Build it for real | 2:39–2:40 (1 min)
 
 SAY
-Signing into Claude on your laptop does not sign in the Railway computer. The helper writes the dedicated subscription credentials directly to its persistent volume. Keep secrets out of terminal logs and course assets. If authorization expires, repeat the helper. A health response alone is not proof Claude can answer.
+Signing in on my laptop does not sign in another computer. Ask Claude to install and connect the Railway command-line tool to this project. The supplied command opens the login helper on the Railway computer. Complete its browser authorization and return the confirmation code to its waiting terminal. Keep this authorization step private. If access expires later, repeat the login helper. A running program alone is not proof of a working Claude account.
 
 ON SCREEN
 Ask Claude to install the Railway CLI, sign in and link the worker folder to the intended service. Verify with railway status. Then run railway ssh node scripts/login.mjs and complete its browser authorization.
 
 EXACT PROMPT
-Guide me through signing the Railway worker into the intended Claude subscription. Use the supplied login helper and keep credentials on the /data volume. Verify a real answer, then redeploy the worker and verify sign-in still works.
+Help me sign in to the intended Claude account on Railway using the supplied login helper. Keep the login in the saved /data folder. Ask a sample question and check the answer. Deploy the helper again, then repeat the question to confirm it still works.
 
 WHY THIS PROMPT
-Location: signs in where Claude actually runs.
-Persistence: tests a fresh deployment.
+Right computer: signs in where Claude runs.
+Repeat check: confirms an update keeps access.
 
 CHECK BEFORE CONTINUING
-A real sourced answer works before and after worker redeployment.
+A real answer works before and after deploying the helper again.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
 
 TRANSITION
-Connect Vercel to the chat worker
+An address and two different kinds of access
 
-## 116. Connect Vercel to the chat worker
+## 118. An address and two different kinds of access
 
-SLIDE 116 | Build it for real | 2:38–2:39 (1 min)
+SLIDE 118 | Build it for real | 2:40–2:41 (1 min)
 
 SAY
-These variables belong in Vercel server settings. The origin is the exact scheme and host without a page path or trailing slash. A preview URL needs its own matching configuration. Set the variables for the environment being deployed, then redeploy. The app chooses hosted chat when this configuration is present. Railway never needs Supabase credentials.
+Vercel needs to know where the helper lives and how to identify itself to it. The service token is a private machine-to-machine credential shared by Vercel and Railway. Learners do not type that value. They type a separate course access code into ClientDesk. The app passes it along for the helper to check. Separately, Claude’s own login authorizes the AI request. We completed that login on the previous slide. None of these values belongs in the public repository.
 
 ON SCREEN
-Enter the three settings privately in Vercel, redeploy the app and open its actual URL.
+Point from the learner to ClientDesk, then from Vercel to Railway. Name the code used at each step, without showing real values.
 
 CHECK BEFORE CONTINUING
-The hosted Ask Claude panel accepts the course code and reaches the worker.
+Learners know which code they enter and which credential belongs only in server settings.
+
+IF THE DEMO STALLS
+Open the hosting guide and trace the same example on its diagram.
+
+TRANSITION
+The three settings Vercel needs
+
+## 119. The three settings Vercel needs
+
+SLIDE 119 | Build it for real | 2:41–2:42 (1 min)
+
+SAY
+Open your Vercel project, then Settings and Environment Variables. A variable has a name on the left and a value you supply on the right. Copy the exact names from the guide. First give Vercel the helper’s Railway web address. Next give it the same private service credential saved as CHAT_SERVICE_TOKEN in Railway. Finally supply the base address of your own Vercel app, with no page path, query or trailing slash. That base address is called the origin. It includes https and, when present, a port. Use the settings for the deployment you are testing, save them, then redeploy so the running app receives them. Keep the learner’s course code separate.
+
+ON SCREEN
+Use Vercel project Settings, Environment Variables. Enter the three documented names and your own values privately, save and redeploy. Open your app URL and ask a sample question.
+
+CHECK BEFORE CONTINUING
+The learner enters the course code and receives a sourced answer at the Vercel app URL.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -2549,9 +2606,9 @@ Open the named file in the completed reference. Identify the unfinished step in 
 TRANSITION
 Prove the full hosted conversation
 
-## 117. Prove the full hosted conversation
+## 120. Prove the full hosted conversation
 
-SLIDE 117 | Build it for real | 2:39–2:40 (1 min)
+SLIDE 120 | Build it for real | 2:42–2:43 (1 min)
 
 SAY
 This is the acceptance test for the whole system. A successful deploy is not the same as a useful app. Inspect the answer’s facts, source and uncertainty. Confirm a task suggestion is not silently saved. Save records live in Supabase; the conversation is held in page memory and resets when the page is reloaded.
@@ -2573,14 +2630,14 @@ IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
 
 TRANSITION
-If the hosted path fails, locate the break
+When chat fails, check the matching step
 
-## 118. If the hosted path fails, locate the break
+## 121. When chat fails, check the matching step
 
-SLIDE 118 | Build it for real | 2:40–2:41 (1 min)
+SLIDE 121 | Build it for real | 2:43–2:44 (1 min)
 
 SAY
-Troubleshoot one boundary at a time. Do not keep rewriting the user’s prompt when the service cannot authenticate. Logs should reveal status and error categories without printing private credentials, meeting text or chat answers. END-TO-END.md has a longer recovery checklist.
+Use the message to identify the step that failed. A wrong course code, an unavailable helper and an expired Claude login are different problems. Ask Claude to inspect the relevant settings and diagnostic messages without displaying secrets or client records. Fix that step and retry the same question. The hosting guide provides the exact setting names.
 
 ON SCREEN
 Identify the symptom and open only the relevant configuration or log. Retest the same failed request after the correction.
@@ -2594,9 +2651,9 @@ Open the named file in the completed reference. Identify the unfinished step in 
 TRANSITION
 Build Q&A + reset
 
-## 119. Build Q&A + reset
+## 122. Build Q&A + reset
 
-SLIDE 119 | Build it for real | 2:41–2:44:30 (3.5 min)
+SLIDE 122 | Build it for real | 2:44–2:47:30 (3.5 min)
 
 SAY
 The build has a useful journey, a connection boundary, and an explicit test record. Now we isolate the recurring work and turn it into a skill. That skill should help another person perform the task without inheriting our whole conversation.
@@ -2613,9 +2670,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A skill anyone can run
 
-## 120. A skill anyone can run
+## 123. A skill anyone can run
 
-SLIDE 120 | Create, iterate, and distribute skills | 2:44:30–2:45:30 (1 min)
+SLIDE 123 | Create, iterate, and distribute skills | 2:47:30–2:48:30 (1 min)
 
 SAY
 The app is the product. The skill is the method for recurring work around it. Our example prepares a client brief from known records and proposes a follow-up for review. It should explain itself in a fresh session.
@@ -2632,9 +2689,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Which work deserves a skill?
 
-## 121. Which work deserves a skill?
+## 124. Which work deserves a skill?
 
-SLIDE 121 | Create, iterate, and distribute skills | 2:45:30–2:46:30 (1 min)
+SLIDE 124 | Create, iterate, and distribute skills | 2:48:30–2:49:30 (1 min)
 
 SAY
 A skill is useful when a method recurs. It should remove repeated explanation while retaining the choices that require judgment. A one-off prompt may be enough when there is no recurring method to maintain.
@@ -2653,9 +2710,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 The app and the skill
 
-## 122. The app and the skill
+## 125. The app and the skill
 
-SLIDE 122 | Create, iterate, and distribute skills | 2:46:30–2:47 (0.5 min)
+SLIDE 125 | Create, iterate, and distribute skills | 2:49:30–2:50 (0.5 min)
 
 SAY
 The skill does not become a second database or bypass the application contract. It reads through a defined interface, produces a clear result, and routes the proposed action to review. This separation lets us revise the method without rewriting the whole app.
@@ -2672,9 +2729,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 The skill creation prompt
 
-## 123. The skill creation prompt
+## 126. The skill creation prompt
 
-SLIDE 123 | Create, iterate, and distribute skills | 2:47–2:48 (1 min)
+SLIDE 126 | Create, iterate, and distribute skills | 2:50–2:51 (1 min)
 
 SAY
 I create the skill after we understand the method. Otherwise we risk packaging our guesses. The app manages the workflow; the skill gives Claude a repeatable way to prepare the brief. Repeatability: packages the method we already tested. Inputs: makes client and date explicit.
@@ -2698,9 +2755,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Name and argument hints
 
-## 124. Name and argument hints
+## 127. Name and argument hints
 
-SLIDE 124 | Create, iterate, and distribute skills | 2:48–2:48:30 (0.5 min)
+SLIDE 127 | Create, iterate, and distribute skills | 2:51–2:51:30 (0.5 min)
 
 SAY
 A clear name tells a teammate what will happen. The description says when to use it. The argument hint helps autocomplete. Keep the project folder and name aligned to avoid confusion about the command. We will invoke this teaching skill manually.
@@ -2717,9 +2774,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Why the name and hints matter
 
-## 125. Why the name and hints matter
+## 128. Why the name and hints matter
 
-SLIDE 125 | Create, iterate, and distribute skills | 2:48:30–2:49 (0.5 min)
+SLIDE 128 | Create, iterate, and distribute skills | 2:51:30–2:52 (0.5 min)
 
 SAY
 A good name is a small piece of interface design. The hint should help someone begin, but it does not validate the input. The instructions still need to handle a missing client or impossible date. Discoverability: tests the words the next person will see. Control: checks when invocation is allowed.
@@ -2743,9 +2800,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A hint does not validate an input
 
-## 126. A hint does not validate an input
+## 129. A hint does not validate an input
 
-SLIDE 126 | Create, iterate, and distribute skills | 2:49–2:50:30 (1.5 min)
+SLIDE 129 | Create, iterate, and distribute skills | 2:52–2:53:30 (1.5 min)
 
 SAY
 The hint is a user aid. The command parser or workflow must validate the actual input. “Northstar” and “northstar” need a deliberate mapping. A date-shaped string such as February 30 should not silently pass.
@@ -2762,9 +2819,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 The skill’s working instructions
 
-## 127. The skill’s working instructions
+## 130. The skill’s working instructions
 
-SLIDE 127 | Create, iterate, and distribute skills | 2:50:30–2:51 (0.5 min)
+SLIDE 130 | Create, iterate, and distribute skills | 2:53:30–2:54 (0.5 min)
 
 SAY
 The body defines the method and its limits. It should not contain every provider manual. Put larger examples and templates beside the file. The crucial behavior here is preserving uncertainty and evidence while proposing a useful next action.
@@ -2784,9 +2841,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Run the skill with the demo date
 
-## 128. Run the skill with the demo date
+## 131. Run the skill with the demo date
 
-SLIDE 128 | Create, iterate, and distribute skills | 2:51–2:54 (3 min)
+SLIDE 131 | Create, iterate, and distribute skills | 2:54–2:57 (3 min)
 
 SAY
 The slide gives a reusable request. Claude reads the prepared date and produces the exact command for today’s demonstration. We do not need to edit the deck each time the course runs. Reusable date: avoids a stale classroom example. Inspection: checks the output against the intended structure.
@@ -2810,9 +2867,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A small skill package
 
-## 129. A small skill package
+## 132. A small skill package
 
-SLIDE 129 | Create, iterate, and distribute skills | 2:54–2:55:30 (1.5 min)
+SLIDE 132 | Create, iterate, and distribute skills | 2:57–2:58:30 (1.5 min)
 
 SAY
 The instruction file routes the work. The template defines the output. The example shows the quality bar. The test cases record situations that previously failed. Keep referenced files relative to the skill directory.
@@ -2832,9 +2889,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 The brief a teammate receives
 
-## 130. The brief a teammate receives
+## 133. The brief a teammate receives
 
-SLIDE 130 | Create, iterate, and distribute skills | 2:55:30–2:57:30 (2 min)
+SLIDE 133 | Create, iterate, and distribute skills | 2:58:30–3:00:30 (2 min)
 
 SAY
 A useful brief separates facts from suggestions. If a due date was not agreed, the model should not present its own date as a client commitment. Put the proposed date in the suggestion and ask the reviewer to confirm it.
@@ -2851,9 +2908,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Read skill and write action
 
-## 131. Read skill and write action
+## 134. Read skill and write action
 
-SLIDE 131 | Create, iterate, and distribute skills | 2:57:30–2:59 (1.5 min)
+SLIDE 134 | Create, iterate, and distribute skills | 3:00:30–3:02 (1.5 min)
 
 SAY
 Our first skill has no automatic external write. The application handles the reviewed save. If a later team adds an apply skill, keep approval separate and validate the actual payload and authenticated identity in code. A skill instruction alone is not a control.
@@ -2870,9 +2927,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Rules keep the method consistent
 
-## 132. Rules keep the method consistent
+## 135. Rules keep the method consistent
 
-SLIDE 132 | Create, iterate, and distribute skills | 2:59–3:00:30 (1.5 min)
+SLIDE 135 | Create, iterate, and distribute skills | 3:02–3:03:30 (1.5 min)
 
 SAY
 Rules should capture requirements that apply beyond one command. Avoid copying a long rule into every skill. Keep the shared project contract short and use topic files when they make it easier to maintain.
@@ -2889,9 +2946,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A hook checks edited sample files
 
-## 133. A hook checks edited sample files
+## 136. A hook checks edited sample files
 
-SLIDE 133 | Create, iterate, and distribute skills | 3:00:30–3:01 (0.5 min)
+SLIDE 136 | Create, iterate, and distribute skills | 3:03:30–3:04 (0.5 min)
 
 SAY
 This hook runs after a matching edit or write. The script reads the event and validates a fixture file if that file changed. It does not rewrite the file or make a network request. Review hook scripts before enabling them and merge configuration into existing settings.
@@ -2908,9 +2965,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Add a hook with a clear purpose
 
-## 134. Add a hook with a clear purpose
+## 137. Add a hook with a clear purpose
 
-SLIDE 134 | Create, iterate, and distribute skills | 3:01–3:04 (3 min)
+SLIDE 137 | Create, iterate, and distribute skills | 3:04–3:07 (3 min)
 
 SAY
 The hook is a small automatic check. It is not a promise that the entire project is correct. We make its trigger and its limits visible so the team knows what it does. Review: reads executable code before enabling it. Integration: preserves the project’s other settings.
@@ -2934,9 +2991,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A concrete quality loop
 
-## 135. A concrete quality loop
+## 138. A concrete quality loop
 
-SLIDE 135 | Create, iterate, and distribute skills | 3:04–3:05 (1 min)
+SLIDE 138 | Create, iterate, and distribute skills | 3:07–3:08 (1 min)
 
 SAY
 These layers complement each other. A rule asks for evidence. A skill retrieves and cites it. A hook can verify a known format. A person decides whether the result is useful and whether an action should be saved.
@@ -2953,9 +3010,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Build /client-brief
 
-## 136. Build /client-brief
+## 139. Build /client-brief
 
-SLIDE 136 | Create, iterate, and distribute skills | 3:05–3:15 (10 min)
+SLIDE 139 | Create, iterate, and distribute skills | 3:08–3:18 (10 min)
 
 SAY
 Use the starter file or create the folder yourself. Spend three minutes on metadata and inputs, four on the method and template, and three running the normal and invalid cases. The skill must not create a task as a side effect.
@@ -2972,9 +3029,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A skill review before sharing
 
-## 137. A skill review before sharing
+## 140. A skill review before sharing
 
-SLIDE 137 | Create, iterate, and distribute skills | 3:15–3:16 (1 min)
+SLIDE 140 | Create, iterate, and distribute skills | 3:18–3:19 (1 min)
 
 SAY
 A skill that works for its author may rely on tools, paths, or context the teammate does not have. Review the package against this list. Keep claims tied to observed runs, and record any environment assumptions.
@@ -2991,9 +3048,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A fresh session is the real test
 
-## 138. A fresh session is the real test
+## 141. A fresh session is the real test
 
-SLIDE 138 | Create, iterate, and distribute skills | 3:16–3:16:30 (0.5 min)
+SLIDE 141 | Create, iterate, and distribute skills | 3:19–3:19:30 (0.5 min)
 
 SAY
 A cold run removes the accidental support of the author’s chat. It exposes missing prerequisites, unclear inputs, and hidden judgments. We are testing the method’s portability, not the skill of the person receiving it.
@@ -3012,9 +3069,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 The fresh-session rehearsal
 
-## 139. The fresh-session rehearsal
+## 142. The fresh-session rehearsal
 
-SLIDE 139 | Create, iterate, and distribute skills | 3:16:30–3:17:30 (1 min)
+SLIDE 142 | Create, iterate, and distribute skills | 3:19:30–3:20:30 (1 min)
 
 SAY
 The author stays quiet for the first attempt. If I explain the missing step aloud, I hide the defect. The point is to improve the package until another person can follow it independently. Independence: removes hidden chat context. Feedback: turns guessing into a specific documentation defect.
@@ -3038,9 +3095,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Run it cold
 
-## 140. Run it cold
+## 143. Run it cold
 
-SLIDE 140 | Create, iterate, and distribute skills | 3:17:30–3:25:30 (8 min)
+SLIDE 143 | Create, iterate, and distribute skills | 3:20:30–3:28:30 (8 min)
 
 SAY
 The author stays quiet for the first attempt. The tester records the input, expected behavior, observed result, and consequence. Missing setup documentation is a defect even if the core instructions are excellent.
@@ -3057,9 +3114,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Fix the layer that caused the failure
 
-## 141. Fix the layer that caused the failure
+## 144. Fix the layer that caused the failure
 
-SLIDE 141 | Create, iterate, and distribute skills | 3:25:30–3:26:30 (1 min)
+SLIDE 144 | Create, iterate, and distribute skills | 3:28:30–3:29:30 (1 min)
 
 SAY
 Match the fix to the cause. If data conversion loses a field, repair that conversion. If someone cannot find the command, improve its name or README. If access is wrong, fix the enforced rule in the server or database and retest.
@@ -3076,9 +3133,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 One observed defect, one revision
 
-## 142. One observed defect, one revision
+## 145. One observed defect, one revision
 
-SLIDE 142 | Create, iterate, and distribute skills | 3:26:30–3:27:30 (1 min)
+SLIDE 145 | Create, iterate, and distribute skills | 3:29:30–3:30:30 (1 min)
 
 SAY
 This is a specific revision motivated by evidence. It changes how the result communicates uncertainty. Rerun the same case and one normal case to confirm that the fix does not erase useful information.
@@ -3095,9 +3152,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Checks to repeat after each change
 
-## 143. Checks to repeat after each change
+## 146. Checks to repeat after each change
 
-SLIDE 143 | Create, iterate, and distribute skills | 3:27:30–3:28:30 (1 min)
+SLIDE 146 | Create, iterate, and distribute skills | 3:30:30–3:31:30 (1 min)
 
 SAY
 Keep a small set of meaningful cases with the skill. Add cases when an actual failure teaches you something. The goal is confidence in the behavior that matters, not a large test count.
@@ -3114,9 +3171,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Into your team’s hands
 
-## 144. Into your team’s hands
+## 147. Into your team’s hands
 
-SLIDE 144 | Create, iterate, and distribute skills | 3:28:30–3:29:30 (1 min)
+SLIDE 147 | Create, iterate, and distribute skills | 3:31:30–3:32:30 (1 min)
 
 SAY
 Distribution adds new people, machines, and failure modes. Start with one teammate and a known version. The shared repository should make the setup, ownership, and supported behavior clear.
@@ -3133,9 +3190,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 GitHub is the shared home
 
-## 145. GitHub is the shared home
+## 148. GitHub is the shared home
 
-SLIDE 145 | Create, iterate, and distribute skills | 3:29:30–3:30 (0.5 min)
+SLIDE 148 | Create, iterate, and distribute skills | 3:32:30–3:33 (0.5 min)
 
 SAY
 For this project, committing the skill beside the app is the simplest shared home. A teammate receives the same code, rules, templates, and skill. A plugin can be useful later when the same package needs to span many projects.
@@ -3152,9 +3209,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Prepare the release in plain English
 
-## 146. Prepare the release in plain English
+## 149. Prepare the release in plain English
 
-SLIDE 146 | Create, iterate, and distribute skills | 3:30–3:31 (1 min)
+SLIDE 149 | Create, iterate, and distribute skills | 3:33–3:34 (1 min)
 
 SAY
 A release is more than uploading SKILL.md. It includes the method, the supporting files, and the instructions that remove guessing. We start with one teammate and use their first run to improve it. Completeness: includes the instructions around the skill. Review: ties sharing to a known, tested version.
@@ -3178,9 +3235,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A teammate starts from a known version
 
-## 147. A teammate starts from a known version
+## 150. A teammate starts from a known version
 
-SLIDE 147 | Create, iterate, and distribute skills | 3:31–3:32 (1 min)
+SLIDE 150 | Create, iterate, and distribute skills | 3:34–3:35 (1 min)
 
 SAY
 The released app should include a lockfile and documented prerequisites. The teaching kit uses built-in Node modules, so its README gives the simpler start command. For a real release, test the exact installation steps on a clean machine.
@@ -3200,9 +3257,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Package it for a teammate
 
-## 148. Package it for a teammate
+## 151. Package it for a teammate
 
-SLIDE 148 | Create, iterate, and distribute skills | 3:32–3:38 (6 min)
+SLIDE 151 | Create, iterate, and distribute skills | 3:35–3:41 (6 min)
 
 SAY
 A release is the method plus everything needed to use it. The README should show prerequisites, setup, the first command, expected output, and how to report a problem. A local tag is enough for the exercise if the remote is not ready.
@@ -3219,9 +3276,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Keep the library useful
 
-## 149. Keep the library useful
+## 152. Keep the library useful
 
-SLIDE 149 | Create, iterate, and distribute skills | 3:38–3:39 (1 min)
+SLIDE 152 | Create, iterate, and distribute skills | 3:41–3:42 (1 min)
 
 SAY
 Skills decay when tools, commands, or team workflows change. Review the library based on actual usage and failures. Retire or archive obsolete methods visibly instead of leaving multiple conflicting versions installed.
@@ -3238,9 +3295,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 The workflow ends with a useful brief
 
-## 150. The workflow ends with a useful brief
+## 153. The workflow ends with a useful brief
 
-SLIDE 150 | Create, iterate, and distribute skills | 3:39–3:41 (2 min)
+SLIDE 153 | Create, iterate, and distribute skills | 3:42–3:44 (2 min)
 
 SAY
 We can now connect the whole story. The specification defines the job. The app brings the evidence together. Browser testing improves the journey. The skill produces a consistent brief. A reviewer saves the follow-up, and a teammate can reproduce the method.
@@ -3257,9 +3314,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 What “ready to share” means
 
-## 151. What “ready to share” means
+## 154. What “ready to share” means
 
-SLIDE 151 | Create, iterate, and distribute skills | 3:41–3:42 (1 min)
+SLIDE 154 | Create, iterate, and distribute skills | 3:44–3:45 (1 min)
 
 SAY
 Do not equate publishing a repository with successful adoption. Watch one person use it for a real task, collect the friction, and improve the method before expanding access. For real data, complete the live and authorization checks first.
@@ -3276,9 +3333,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Skills Q&A + reset
 
-## 152. Skills Q&A + reset
+## 155. Skills Q&A + reset
 
-SLIDE 152 | Create, iterate, and distribute skills | 3:42–3:44 (2 min)
+SLIDE 155 | Create, iterate, and distribute skills | 3:45–3:47 (2 min)
 
 SAY
 Take questions on naming, arguments, scope, review, and distribution. Use the CRM example to keep answers concrete. We finish with one useful weekend build.
@@ -3295,9 +3352,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 A useful tool starts with a useful job
 
-## 153. A useful tool starts with a useful job
+## 156. A useful tool starts with a useful job
 
-SLIDE 153 | Your weekend build | 3:44–3:45:30 (1.5 min)
+SLIDE 156 | Your weekend build | 3:47–3:48:30 (1.5 min)
 
 SAY
 A useful first version does not require a month-long runway. Keep the first job small, prepare the accounts, and use the checkpoints from today. Your weekend goal is one usable loop with enough evidence to show another person.
@@ -3315,9 +3372,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 Your weekend build
 
-## 154. Your weekend build
+## 157. Your weekend build
 
-SLIDE 154 | Your weekend build | 3:45:30–3:48:30 (3 min)
+SLIDE 157 | Your weekend build | 3:48:30–3:51:30 (3 min)
 
 SAY
 This is a suggested pace for a small first version with accounts ready. Friday defines the job. Saturday gets one loop working and checks it. Sunday packages the repeatable method and lets another person try it. If an integration blocks progress, keep the sample-data path and record the missing check rather than calling it complete.
@@ -3334,9 +3391,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 The complete build, with a check at each step
 
-## 155. The complete build, with a check at each step
+## 158. The complete build, with a check at each step
 
-SLIDE 155 | Build it for real | 3:48:30–3:49:30 (1 min)
+SLIDE 158 | Build it for real | 3:51:30–3:52:30 (1 min)
 
 SAY
 This is the whole route. The end-to-end guide links each step to its exact artifact and prompt. If you only want to run the finished reference, use the reference startup path. If you want to learn the construction process, use the separate rebuild path. The source code is included for exact reproduction; prose specifies behavior and design but does not guarantee an identical generated implementation.
@@ -3353,9 +3410,9 @@ Open the named file in the completed reference. Identify the unfinished step in 
 TRANSITION
 Your ClientDesk course kit
 
-## 156. Your ClientDesk course kit
+## 159. Your ClientDesk course kit
 
-SLIDE 156 | Your weekend build | 3:49:30–3:52 (2.5 min)
+SLIDE 159 | Your weekend build | 3:52:30–3:55 (2.5 min)
 
 SAY
 There is one current reference project. The course kit is a portable copy of Walkthrough Assets, with the same app, paths, skill and labs. The older simple app is archived, so learners do not choose between conflicting setup instructions.
@@ -3372,9 +3429,9 @@ Use the corresponding file in the completed Walkthrough Assets reference. State 
 TRANSITION
 What will your team run next?
 
-## 157. What will your team run next?
+## 160. What will your team run next?
 
-SLIDE 157 | Your weekend build | 3:52–3:54 (2 min)
+SLIDE 160 | Your weekend build | 3:55–3:57 (2 min)
 
 SAY
 Write the workflow, the person who owns it, and the date someone else will try it. That is a concrete next step you can act on after this course. Thank you for building along.
