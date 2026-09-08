@@ -1,6 +1,6 @@
 # Prompts for replaying the real build
 
-For the exact 133-slide sequence, use COURSE-PROMPTS.md and INSTRUCTOR-SCRIPT.md in this folder. This shorter collection explains the build stages.
+For the current 160-slide sequence, use COURSE-PROMPTS.md and INSTRUCTOR-SCRIPT.md in this folder. This shorter collection explains the build stages.
 
 These are reusable instructor prompts, written to reflect the decisions and steps actually implemented. They are not a fabricated transcript of tool calls. BUILD-LOG.md records the actual execution.
 
@@ -20,7 +20,7 @@ Use deep navy headers, restrained blue actions, cool white working surfaces, sel
 Why: describes visible results and preserves the design as a reusable artifact.
 
 ## 4. Build the first milestone
-Read the brief, spec and design files. Build the client directory, meeting detail and two-step follow-up review. Validate the exact save on the server, persist it, and show the read-back after refresh. Work in an exercise copy of Walkthrough Assets.
+Read the brief, spec and design files. Build the client directory, meeting detail and two-step follow-up review. Validate the exact save on the server, persist it, and show the read-back after refresh. Work in the separate rebuild prepared with 00-course-map/prepare-rebuild.mjs.
 
 Why: limits the first implementation to the central user journey.
 

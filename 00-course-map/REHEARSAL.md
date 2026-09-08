@@ -1,3 +1,5 @@
+> For the September 8 independent Claude Desktop rebuild and current classroom recovery guidance, read [LIVE-DEMO-RUNBOOK.md](LIVE-DEMO-RUNBOOK.md). The earlier receipts below describe the supplied reference.
+
 # Run the finished app without improvising
 
 Start at the live app or localhost. A new browser identity creates a fresh fictional workspace. Keep your teaching browser consistent: CLI and MCP use their own authorized practice session by default.

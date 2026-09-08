@@ -1,5 +1,7 @@
 # One project, one course path
 
+For an independent build, use [REBUILD-START.md](REBUILD-START.md). The setup below runs the supplied reference application.
+
 Open **Walkthrough Assets** as your Claude Code project root. All paths in the slides are relative to it. The portable ClientDesk Course Kit contains the same folder and code. Older Versions is historical material, not an alternate setup route.
 
 Read **END-TO-END.md** for both routes: run the complete reference or construct a separate rebuild. It includes the app, database, CLI/MCP, Vercel, Railway and skill release.

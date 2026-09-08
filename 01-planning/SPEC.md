@@ -28,6 +28,10 @@ Keep provider keys server-side. Fireflies transcript and Calendly event adapters
 9. Hosted writes require durable database storage; no silent file fallback.
 10. Every tested claim links to a command result, API response or browser screenshot.
 
+## Read-only CLI and MCP
+
+Create a command-line interface and a stdio MCP server. Both call the same workspace API and share one private tool-session cookie, separate from the browser identity. Accept client IDs or unambiguous names such as northstar. Expose an MCP tool named `client_evidence` and support sourced brief preparation with a validated brief date. The project-root `.mcp.json`, actual server entry file and README commands must agree. Test initialize, tools/list and tools/call through the real stdio process; test Northstar, an unknown client, Cedar's unavailable transcript and Atlas's missing meeting. Tool reads do not save tasks or send messages. Never publish tool-session cookies.
+
 ## Local Claude chat
 
 Provide an Ask Claude panel only when the app runs on localhost port 4310 with CLIENTDESK_LOCAL_CHAT enabled. Use the installed Claude Code program in print mode (`claude -p`) and the local subscription login. The Vercel app must never launch this local Claude bridge. The optional hosted Claude route below is a separate backend. This is an execution-location restriction, not a desktop-screen-size restriction.

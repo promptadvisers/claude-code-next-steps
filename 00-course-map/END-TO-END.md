@@ -8,11 +8,13 @@ All paths below begin inside **Walkthrough Assets**. A project root is simply th
 
 **Run the exact reference:** unzip the course kit and follow step 1. The complete source and lockfiles are included. This reproduces the supplied implementation; account setup and deployment are still yours to complete.
 
-**Build it yourself:** create a separate empty folder named `ClientDesk Rebuild`. Bring in `01-planning`, `02-design`, the sample preparation scripts from `00-course-map`, and the sample data. Preserve the numbered folder structure. Start Claude Code in that new root. Read the reference alongside it, but have Claude create the app and worker through the prompts below. Generated code may differ; compare behavior and design against the spec. Do not claim the reference’s recorded test passes for your new build.
+**Build it yourself:** follow [REBUILD-START.md](REBUILD-START.md). The supplied `prepare-rebuild.mjs` creates a separate folder with its own Git root and copies only planning references, design assets, fictional data and deployment guides. Claude creates the application and worker. Planning references use `REFERENCE-` prefixes so you can draft your own BRIEF, SPEC and MILESTONES. Generated code may differ. Compare behavior and design against the specification and record your own checks.
 
-> Help me prepare a separate ClientDesk rebuild folder. Copy the planning documents, design assets and fictional sample data from the course kit. Keep the completed reference available for comparison. Explain which files describe the target and which files are the finished implementation. Do not build the app yet.
+> Read 00-course-map/REBUILD-START.md. Use the supplied helper to prepare a separate ClientDesk rebuild. Verify its own Git root and copied inputs. Keep the completed reference available. Do not copy application source or build yet.
 
 ## 1. Prepare the machine and inspect the finished experience
+
+Run this section in the finished reference. A rebuild has no package scripts or lockfile until the foundation is generated. Stop the reference before starting the rebuild on port 4310, or use the hosted reference alongside it.
 
 Use Node 24 and a signed-in Claude Code installation. Node runs the app’s JavaScript. npm installs the libraries listed in `package.json` and runs its named scripts. `npm ci` installs the versions recorded in the supplied lockfile.
 
@@ -35,9 +37,9 @@ Leave the last command running. Open `http://127.0.0.1:4310`. `127.0.0.1` or loc
 
 ## 2. Write the brief, specification and milestones
 
-Read `01-planning/BRIEF.md`, `SPEC.md`, `MILESTONES.md`, `DECISIONS.md` and `REBUILD-GUIDE.md`. A brief describes the useful job. A specification states the behavior and boundaries. A milestone is a small piece you can demonstrate and check.
+Read the supplied planning references. In the prepared rebuild these have `REFERENCE-` prefixes, including `REFERENCE-SPEC.md` and `REFERENCE-DECISIONS.md`. Draft your own `BRIEF.md`, `SPEC.md` and `MILESTONES.md` using those targets. A brief describes the useful job. A specification states the behavior and boundaries. A milestone is a small piece you can demonstrate and check.
 
-> We are building a CRM for a solo consultant: clients, meetings, upcoming calls and reviewed follow-ups. Read the brief and sample data. Identify missing decisions and ask about blockers. Write a specification with scope, data, acceptance checks, milestones and failure behavior. Do not build yet.
+> Alex needs ClientDesk: open Northstar, read its sourced meeting, review the exact proposed task, choose its owner and date, save once and reload. Read the supplied scope and fictional records. Keep unknown meeting facts distinct from user-chosen task fields. Include the later CRM screens, imports, chat and skill in separate milestones. Draft a brief and specification for review. Exclude billing, campaigns and sending. Do not build yet.
 
 Enter Plan mode using your Claude Code interface’s mode control; in the terminal, Shift+Tab cycles permission modes. Verify the displayed mode. Answer the scope questions, then ask Claude to save the approved decisions to `01-planning/SPEC.md` and `MILESTONES.md`. Keep project guidance in `CLAUDE.md`; the full feature specification belongs in the planning folder.
 

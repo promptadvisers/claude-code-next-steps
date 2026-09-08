@@ -32,6 +32,12 @@ Leave the final command running and open [http://127.0.0.1:4310](http://127.0.0.
 
 **Keep real client data out of your exercise copy.** Do not upload passwords, access codes, environment files or account sessions to GitHub. The supplied `.env.example` files document configuration names with empty values.
 
+## Prepare an independent rebuild
+
+Follow [REBUILD-START.md](00-course-map/REBUILD-START.md) to create a separate folder with the supplied planning, design and fictional data. The helper gives it its own Git root and copies no finished application code. Keep the working reference available. Setup prompts for the reference do not apply to an empty rebuild.
+
+Dependency installation, generation and debugging take variable time. Use prepared checkpoints during class and continue the full additive build afterward. Stop the reference before running the rebuild on the same local port 4310.
+
 ## What to read, and what can wait
 
 | Before class | During the build |

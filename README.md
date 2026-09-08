@@ -30,10 +30,12 @@ You can also create and search clients, inspect upcoming calls, and import ficti
 | Your goal | Start with |
 | --- | --- |
 | Run the finished app on your computer | The quick start below |
-| Rebuild it yourself with Claude | [15-stage end-to-end guide](00-course-map/END-TO-END.md), then [plain-English rebuild brief](01-planning/REBUILD-GUIDE.md) |
+| Rebuild it yourself with Claude | [Prepare a separate rebuild](00-course-map/REBUILD-START.md), then the [15-stage guide](00-course-map/END-TO-END.md) |
 | Understand exactly what the app must do | [Specification](01-planning/SPEC.md) and [acceptance milestones](01-planning/MILESTONES.md) |
 | Follow the course or teach it | [Course prompts](00-course-map/COURSE-PROMPTS.md), [instructor script](00-course-map/INSTRUCTOR-SCRIPT.md) and [rehearsal](00-course-map/REHEARSAL.md) |
 | Put your own copy online | [Hosted setup](05-deployment/SETUP.md) and [Railway Claude chat](05-deployment/HOSTED-CLAUDE-CHAT.md) |
+
+For live delivery, use the [checkpoint runbook](00-course-map/LIVE-DEMO-RUNBOOK.md). It records the independent Fable Low rehearsal findings and explains when to show a prepared result.
 
 The reference includes working source and lockfiles. A fresh build from the prompts may produce different code; compare it against the specification and repeat the checks on your own implementation.
 

@@ -1,14 +1,31 @@
 {
-  "edition": "160-slide plain-English hosting edition",
-  "updated": "2026-09-07",
+  "edition": "160-slide independent rehearsal revision",
+  "updated": "2026-09-08",
   "slides": 160,
+  "prompts": 63,
   "deck": "slides/ClientDesk_Course_End_to_End.pptx",
-  "deckSha256": "99b6640e2598a26ca84944ec9e187c6e5ad7df802be9d4b909c7c2a1e50f86c8",
+  "deckSha256": "6de93bad7dd1bdf70deacf5fee7598447794d084ae471d924ba4e8b756b0d2d5",
   "hostingGuide": "05-deployment/HOSTING-IN-PLAIN-ENGLISH.md",
-  "newTeachingSlides": [
-    111,
-    114,
-    118
+  "rebuildGuide": "00-course-map/REBUILD-START.md",
+  "liveRunbook": "00-course-map/LIVE-DEMO-RUNBOOK.md",
+  "changedSlides": [
+    6,
+    17,
+    27,
+    31,
+    52,
+    60,
+    73,
+    77,
+    78,
+    88,
+    100,
+    103,
+    115,
+    117,
+    150
   ],
-  "scope": "Course materials update only. No new app deployment or app test run. Earlier verification receipts retain their original scope and dates."
+  "scope": "Rehearsal-informed course material changes. Independent app generation used Claude Desktop Fable 5.1 Low in a separate folder. Reference app source and existing hosted deployments were not changed. Historical reference receipts retain their original dates.",
+  "rehearsalReport": "00-course-map/REHEARSAL-2026-09-08.md",
+  "promptCoverage": "00-course-map/PROMPT-COVERAGE.csv"
 }

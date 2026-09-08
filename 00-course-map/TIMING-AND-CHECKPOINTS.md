@@ -1,23 +1,11 @@
-# Expanded-deck pacing note
+# Delivery pacing and checkpoints
 
-The current 157-slide end-to-end edition adds prerequisite and hosted deployment explanations. The earlier 210-minute allocation below is historical and must be rehearsed again before using it for the expanded edition. No timing cues appear on the slides. The current instructor script includes per-slide estimates, which are not a completed rehearsal.
+The current edition has 160 slides, six labs and a 237-minute sum of speaker-note estimates. That is a planning estimate, not a completed narrated-course rehearsal. It does not include every learner’s independent generation, installation or account setup.
 
-# Delivery timing and checkpoints
+Read [LIVE-DEMO-RUNBOOK.md](LIVE-DEMO-RUNBOOK.md) before delivery. Use the finished reference and prepared milestones for live demonstrations; keep the complete additive sequence for independent practice. No timing cues appear on the slides.
 
-The 133-slide run of show is a 210-minute delivery plan, including six labs. It has not been claimed as a fully rehearsed 210-minute lecture. Short reference slides support adjacent demonstrations; do not read every line aloud. Setup, dependency downloads and account sign-in happen before class.
+The September 8 independent Claude Desktop rehearsal used Fable 5.1 at Low effort. The first working loop and its checks took roughly ten minutes. Remaining features needed further generation, follow-up prompts and fixes. A shared build-output failure briefly broke the live page even while verification commands passed. The runbook records the recovery and the checkpoint approach.
 
-| Demonstration | Budget | What to explain while waiting | Fallback |
-| --- | --- | --- | --- |
-| GitHub connection | 2 minutes on a prepared machine | Let Claude inspect the setup, guide sign-in and verify the account | Continue on the teaching machine if installation exceeds the segment. |
-| First implementation request | 8 minutes + 3-minute review | Read the acceptance checks; show which files hold the contract | At six minutes, switch to the completed reference if needed. Name the unfinished slice. |
-| Sample meeting import | 3 minutes, then an 8-minute lab | Client mapping, stable source ID and count | Show the captured import form and recorded count; label the result as recorded. |
-| Access boundary | 3 minutes | One allowed identity and one denied identity | Use existing test receipts; distinguish local checks from hosted database-policy checks. |
-| Hosting | 6 minutes + 3-minute verification | Destination, storage, version and read-back | At five minutes, show the prior deployed reference and its version while the new deployment remains pending. |
-| Ask Claude | 4 minutes | Read the source while the answer runs | After 90 seconds, use the recorded chat answer. Compare its citation with the transcript. |
-| First print-mode command | 3 minutes | One request, printed answer, exit | Show the saved first-command receipt. |
-| Source file to draft | 3 minutes | Identify input and output; read the evidence | Use VERIFIED-EXAMPLE.md. Never present an empty draft as success. |
-| Skill invocation | 3 minutes | Input validation and facts versus proposals | Record discovery/authentication blockers; the CLI can demonstrate the method separately. |
+Complete dependency downloads, account sign-ins and infrastructure setup before class. Use a recorded, clearly labeled result if a model request or service is unavailable. A previous reference receipt does not prove that a new rebuild or a new attendee’s environment works.
 
-The sample import and local chat were exercised during revision. Full-course narration, instructor account setup and each attendee environment require a delivery rehearsal. Live Fireflies/Calendly reads are optional extensions and are not advertised as completed.
-
-Actual implementation provenance remains in BUILD-LOG.md and 04-verification. The prompts are copyable teaching instructions, not an invented verbatim build transcript.
+The prompt coverage report distinguishes exact prompts, adapted milestone requests, reference checks and stages that were not independently exercised. Live Fireflies and Calendly account reads remain optional and were not performed with personal records.
