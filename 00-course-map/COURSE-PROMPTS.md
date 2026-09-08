@@ -1,5 +1,7 @@
 # Exact course prompts
 
+For the reference-based reproduction route, use the [interactive A–Z walkthrough](https://clientdesk-build-playbook.markkashef.chatgpt.site) and its [34 synchronized prompts](A-Z-PROMPTS.md). The original slide prompts below are preserved.
+
 Use a separate working copy for the live build. Start in Plan mode when exploring; approve the plan before asking Claude to edit files. Keep the reference app available as a fallback. These requests describe demonstrations; they do not authorize publishing anything during deck preparation.
 
 ## Slide 6 — How to follow the demonstration

@@ -6,6 +6,8 @@ ClientDesk is a small CRM for a solo consultant. It brings clients, meeting note
 
 This is the reference project for **Claude Code for Everyone: Next Steps**, taught by Mark Kashef of Prompt Advisers. Follow the same path as the course: plan the product, define its design, build and inspect it, connect its tools, deploy it, and package a skill another person can run.
 
+**[Interactive A–Z build playbook](https://clientdesk-build-playbook.markkashef.chatgpt.site)** · **[Copy the A–Z prompts](00-course-map/A-Z-PROMPTS.md)**
+
 **[Before you join](BEFORE-YOU-JOIN.md)** · **[Download the slides](slides/ClientDesk_Course_End_to_End.pptx)** · **[Try the live app](https://clientdesk-course.vercel.app)** · **[Start here](00-course-map/START-HERE.md)** · **[Complete build walkthrough](00-course-map/END-TO-END.md)** · **[Exact course prompts](00-course-map/COURSE-PROMPTS.md)**
 
 ![ClientDesk's navy workspace with client records, the next conversation and Ask Claude](04-verification/screenshots/hosted-workspace-reviewed.png)
