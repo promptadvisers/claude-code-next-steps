@@ -2,15 +2,15 @@
 
 Use a separate working copy for the live build. Start in Plan mode when exploring; approve the plan before asking Claude to edit files. Keep the reference app available as a fallback. These requests describe demonstrations; they do not authorize publishing anything during deck preparation.
 
-## Slide 6 — The reference and your rebuild
+## Slide 6 — How to follow the demonstration
 
-**On screen:** Open the reference first. Then prepare and select the separate rebuild folder using 00-course-map/REBUILD-START.md.
+**On screen:** Open Walkthrough Assets in Claude Code; use a separate copy for exercises.
 
-Read the course start guide. Keep the finished reference separate. Prepare a fresh rebuild with the supplied planning, design and fictional data, using the rebuild guide. Confirm its folder and Git root. Do not copy the finished app or build yet.
+Open Walkthrough Assets as the project root. Read its README, the brief and the start guide. Explain each folder and how to start the app. Do not change files yet.
 
 **Why it works:** Orientation: find the project before changing it. Boundary: reading first prevents accidental setup work.
 
-**Check:** The rebuild has its own Git root and no finished app source.
+**Check:** The app is in 03-build/clientdesk; the plan is in 01-planning.
 
 ## Slide 10 — From meeting evidence to a reviewed task
 
@@ -36,11 +36,11 @@ Help me turn this recurring job into a short build brief: after a client call, I
 
 **On screen:** Answer Claude’s questions, then paste this decision summary.
 
-Alex needs ClientDesk: read Northstar’s sourced meeting, review a task, choose its owner/date, save once and find it after reload. Keep facts beside proposals. Use the supplied full-course scope. Exclude billing, campaigns and sending. Draft 01-planning/BRIEF.md for review.
+Use these decisions: Alex is a solo consultant. The first job is preparing a reviewed follow-up after Northstar’s call. Show the meeting evidence beside the proposed task. Exclude billing, campaigns, and automatic outreach. Draft 01-planning/BRIEF.md for my review.
 
 **Why it works:** Specificity: names the user and result. Exclusions: prevent plausible but unnecessary features.
 
-**Check:** The brief ends with a saved, reloadable task and retains the supplied full-course scope.
+**Check:** 01-planning/BRIEF.md describes the same job and exclusions in plain English.
 
 ## Slide 24 — One request through ClientDesk
 
@@ -50,25 +50,25 @@ Find Northstar’s latest meeting. Cite the source ID and tell me what is still 
 
 **Check:** The answer names demo-transcript-001 and separates the requested checklist from its undecided owner and delivery timing.
 
-## Slide 27 — The reference checkpoint before class
+## Slide 27 — A workspace check before building
 
-**On screen:** Complete this reference setup before class. Stop it before starting the rebuild on the same port.
+**On screen:** Complete this setup before class. In class, show the passing checkpoint.
 
-In the finished reference folder, read 00-course-map/START-HERE.md. Check Node 24, install locked dependencies, prepare the demo data and run the documented checks. Start the reference on port 4310. Report blockers. Do not run this setup in an empty rebuild.
+Read 00-course-map/START-HERE.md. Check Node, install the locked dependencies in 03-build/clientdesk, prepare the demo context, and run the documented checks. Start the app on port 4310. Explain any blocker before continuing.
 
 **Why it works:** Readiness: use the project’s actual instructions. Clarity: surface one concrete blocker before the lab.
 
-**Check:** The reference opens locally. The rebuild remains a separate project.
+**Check:** Northstar opens at localhost:4310 and the current demo date is in 00-course-map/DEMO_CONTEXT.md.
 
 ## Slide 31 — Write the project instructions
 
 **On screen:** Show CLAUDE.md in the project file list. Paste the request into Claude Code.
 
-Read the brief and supplied reference specification. Create a short README and CLAUDE.md with the project purpose, planned file locations, Node 24, start command, checks and review boundaries. Label commands as planned until implemented. Update them after the first passing build.
+Read 01-planning/BRIEF.md, 01-planning/SPEC.md if present, and README.md. Create or update CLAUDE.md with the project purpose, file locations, start command, checks, and what requires human review. Keep it short and remove anything that merely repeats another file.
 
 **Why it works:** Context: uses the files that actually exist. Maintenance: keeps instructions short enough to review.
 
-**Check:** Instructions distinguish planned commands from commands that actually pass.
+**Check:** The file points to the real start and check commands.
 
 ## Slide 33 — Turn a design preference into a rule
 
@@ -156,9 +156,9 @@ Set up the project’s ignore file so secrets, machine-specific settings, logs, 
 
 ## Slide 52 — The first local checkpoint
 
-**On screen:** Verify the exact Git root. A folder inside another repository needs its own root for this isolated exercise.
+**On screen:** Demonstrate in a fresh teaching copy. If it is already a repository, skip git init. Explain each command before executing it.
 
-Confirm that Git’s root is this rebuild folder, not an enclosing project. Initialize a separate repository if needed. Exclude secrets and local data. Show the plan and design files to include, then save their reviewed local checkpoint.
+Save a local checkpoint of the agreed plan. Check whether this folder already uses Git. Show me the files you will include, exclude secrets and local data, then commit the reviewed files with a clear message.
 
 **Check:** Result: a named checkpoint we can return to. Claude chooses the required Git commands.
 
@@ -222,7 +222,7 @@ In this rebuild, create 03-build/clientdesk using Next.js, TypeScript and Node 2
 
 ## Slide 60 — The first implementation request
 
-**On screen:** Use the separate rebuild on port 4310. Stop the local reference first, or keep the hosted reference available.
+**On screen:** Use a separate working copy. Keep the finished reference on port 4310.
 
 Read 01-planning/SPEC.md and 01-planning/MILESTONES.md. Build the first client workflow in 03-build/clientdesk with fictional records: meeting evidence, an editable follow-up, review, and save. Run the agreed checks and show the result in the browser. Stop before adding live services.
 
@@ -280,13 +280,13 @@ Import the fictional event in 01-planning/sample-data/event.json for Northstar. 
 
 ## Slide 73 — Create your Supabase project
 
-**On screen:** The reference already includes database code and two migrations. A fresh rebuild must implement and review its own database checkpoint before applying SQL.
+**On screen:** In your own Supabase account create a project. Use its SQL Editor for the two complete migration files, then Authentication settings to enable anonymous sign-ins.
 
-Before cloud setup, inspect this rebuild. Implement the spec’s Supabase storage, anonymous identity, migrations and access-check script if missing. Show and review those files. Then configure a dedicated teaching project, apply its migrations in order and test two isolated identities.
+Help me create a dedicated Supabase project for this fictional CRM. Apply both SQL migration files from the app’s supabase/migrations folder in filename order. Enable anonymous sign-ins. Verify that two visitor identities cannot read or change each other’s workspace.
 
 **Why it works:** Order: applies the recorded database setup. Isolation: checks who can access records.
 
-**Check:** Required files exist; migrations apply in order; two-identity database checks pass. Local SQLite checks alone are insufficient.
+**Check:** Both migrations succeed and the two-identity access check passes.
 
 ## Slide 74 — Ask for an access check in plain English
 
@@ -302,21 +302,21 @@ Read the existing access tests. Run the documented check with two isolated pract
 
 **On screen:** Inspect scripts/clientdesk.ts, scripts/mcp.mjs and scripts/http-session.mjs in the reference app; implement their responsibilities in the rebuild.
 
-Build the ClientDesk CLI and MCP interface from the spec. Reuse the workspace API and shared tool identity. Expose client_evidence and sourced brief preparation. Accept client IDs or unambiguous names. Test Northstar, an unknown client and missing meetings through the real CLI and MCP protocol.
+Build the ClientDesk CLI and MCP server described in the spec. Reuse the app’s workspace API and identity handling. Support reading client evidence and preparing a sourced brief. Test the normal case, an unknown client and missing meeting data.
 
 **Why it works:** Reuse: keeps one source of app behavior. Cases: proves the interface handles uncertainty.
 
-**Check:** CLI and MCP share their practice workspace, preserve sources and unknowns, and expose the documented tool names.
+**Check:** The CLI and MCP return the same evidence in their shared practice workspace.
 
 ## Slide 78 — Connect the project’s MCP server
 
-**On screen:** The reference entry is scripts/mcp.mjs. A rebuild may use another path; its .mcp.json, README and actual file must agree. Restart the session after configuration changes.
+**On screen:** From the project root inspect .mcp.json. It uses node, args 03-build/clientdesk/scripts/mcp.mjs, and CLIENTDESK_URL http://127.0.0.1:4310. Restart the Claude session after configuration changes.
 
-Check that the app is running. Review this implementation’s project-root .mcp.json and actual MCP entry file. Start a fresh Claude Code session from this project root, approve the trusted local server, and verify ClientDesk and client_evidence are connected in /mcp.
+Check that the app is running. Review the project-root .mcp.json and point its ClientDesk entry at our app’s scripts/mcp.mjs. Start Claude Code from this project root, approve the trusted server, and verify ClientDesk is connected in /mcp.
 
 **Why it works:** Location: makes relative paths resolve. Verify: tests the connection before a question.
 
-**Check:** /mcp reports the actual project server connected; client_evidence is available.
+**Check:** /mcp lists ClientDesk as connected and exposes client_evidence.
 
 ## Slide 79 — A useful MCP question
 
@@ -374,7 +374,7 @@ Open Northstar in the running ClientDesk app. Set the browser’s content area t
 
 ## Slide 88 — A defect report you can act on
 
-**On screen:** Navigate to Northstar in the running app. The supplied reference uses /?view=client&client=northstar; a rebuild may use a different route. There is no hidden cramped-mode parameter.
+**On screen:** Use the working navy app at /?view=client&client=northstar. Report an observed problem; there is no hidden cramped-mode parameter.
 
 At 390 pixels wide, inspect the Northstar page and reach Review with the keyboard. If an action is blocked, capture it, explain the cause, fix it and repeat the same path. If it works, record the passing evidence instead of inventing a defect.
 
@@ -423,13 +423,13 @@ Help me import my reviewed GitHub repository into Vercel. Set the root directory
 
 ## Slide 100 — Run the checks before deployment
 
-**On screen:** Run the documented scripts from the app folder. Confirm how this implementation isolates build output before running concurrent servers.
+**On screen:** Keep the app server in one terminal and run checks in another. Open 04-verification for the expected checks and receipts.
 
-Run the app’s tests, typecheck, build and HTTP checks. Keep test/build output separate from the running demo, or stop it safely first. Fix failures and repeat affected checks. Restart the demo and verify the same saved task after reload before deploying.
+Run npm test, npm run typecheck and npm run build in the app folder. With the local app running, run npm run test:http. Explain failures, fix their cause, and repeat the affected checks before deploying.
 
 **Why it works:** Layers: checks data, types, build and real requests. Evidence: distinguishes passing code from a passing screen.
 
-**Check:** Checks pass and the existing browser workspace still opens with its saved task.
+**Check:** All four checks pass; the browser journey also works.
 
 ## Slide 101 — A hosted preview of the CRM
 
@@ -451,7 +451,7 @@ Open the new preview URL and repeat the agreed client journey with fictional dat
 
 ## Slide 103 — Ask Claude about the client
 
-**On screen:** Demonstrate the prepared reference chat here. For the rebuild, run this question after implementing and enabling the bridge on slide 108.
+**On screen:** Open Ask Claude on localhost, select Northstar and send this one question.
 
 What did Maya request? Cite the meeting source ID. What did the meeting leave undecided? Keep it to three short bullets.
 
@@ -506,11 +506,11 @@ First add a local Ask Claude panel for the selected client. Use the signed-in Cl
 
 **On screen:** Open the worker Dockerfile, src/claude.ts, src/server.ts and src/guard.ts. Compare with 05-deployment/HOSTED-CLAUDE-CHAT.md.
 
-Build hosted chat from the guide: worker, Dockerfile, saved-login helper, tests, app-to-worker route and access-code UI. Send only the selected client’s records and question. Check answers; disable tools and writes. Test cancellation, timeout, access checks and persistent usage limits.
+Create the chat helper in 03-build/clientdesk-chat using the hosted chat guide. Give it only the selected client’s records and question. Let approved requests reach Claude and return a checked answer. Prevent it from changing files or saving tasks. Add a Stop button, a time limit and usage limits.
 
 **Why it works:** Clear job: answers one client question. Boundaries: controls access and actions.
 
-**Check:** Worker, login helper, app adapter, access-code UI and tests exist. Verify both ends before a real Railway answer.
+**Check:** A question returns an answer. Invalid requests fail. Stop cancels the work.
 
 ## Slide 116 — A home for the chat helper on Railway
 
@@ -526,11 +526,11 @@ Help me run 03-build/clientdesk-chat on Railway using the hosted chat guide. Kee
 
 **On screen:** Ask Claude to install the Railway CLI, sign in and link the worker folder to the intended service. Verify with railway status. Then run railway ssh node scripts/login.mjs and complete its browser authorization.
 
-Review the login helper created with our worker. Help me sign in to the intended Claude account on Railway. Keep login in the saved /data folder. Test a real answer, deploy the helper again, then repeat the question to confirm login survives.
+Help me sign in to the intended Claude account on Railway using the supplied login helper. Keep the login in the saved /data folder. Ask a sample question and check the answer. Deploy the helper again, then repeat the question to confirm it still works.
 
 **Why it works:** Right computer: signs in where Claude runs. Repeat check: confirms an update keeps access.
 
-**Check:** The reviewed login helper exists and a real answer works before and after redeployment.
+**Check:** A real answer works before and after deploying the helper again.
 
 ## Slide 120 — Prove the full hosted conversation
 
@@ -612,8 +612,8 @@ Prepare a reviewed release of the app and client-brief skill. Include setup, one
 
 ## Slide 150 — A teammate starts from a known version
 
-**On screen:** Use the published participant repository. Record the current commit before setup. Keep this reference clone separate from the rebuild.
+**On screen:** Use a prepared private demo repository. Replace the placeholder URL with its real address in the teaching copy; do not invent a public course repository.
 
-Clone https://github.com/promptadvisers/claude-code-next-steps or open the supplied kit. Read BEFORE-YOU-JOIN.md and 00-course-map/START-HERE.md. Complete setup, start Claude Code at the root and run /client-brief with northstar and the prepared date.
+Open the supplied Walkthrough Assets folder or clone the instructor’s reviewed repository. Read 00-course-map/START-HERE.md and follow its setup. Start Claude Code at the root and run /client-brief with Northstar and the prepared date.
 
-**Check:** Use the public course repository or the supplied kit. Record its commit before starting.
+**Check:** Use the supplied folder today. A repository URL and real version are supplied only for a published team release.

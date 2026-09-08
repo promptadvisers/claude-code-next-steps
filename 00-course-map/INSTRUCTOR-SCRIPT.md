@@ -95,27 +95,27 @@ IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
 
 TRANSITION
-The reference and your rebuild
+How to follow the demonstration
 
-## 6. The reference and your rebuild
+## 6. How to follow the demonstration
 
 SLIDE 6 | Welcome | 0:04:30–0:05:30 (1 min)
 
 SAY
-There are two paths. The reference is the supplied, tested application you can run before class. The rebuild starts with its planning, design and fictional records. Claude writes new application code there. Setup prompts for the reference do not run against an empty rebuild. Keep both folders clearly named. If the rebuild sits inside another repository, initialize its own Git root before starting a Claude Desktop session. Verify the selected directory. We will use prepared checkpoints during long build steps and retain the complete sequence for self-study.
+We will follow the same pattern each time: explain the job, give Claude the prompt, inspect the result, and decide whether to continue. The exact prompt is on this slide and in COURSE-PROMPTS.md. Orientation: find the project before changing it. Boundary: reading first prevents accidental setup work.
 
 ON SCREEN
-Open the reference first. Then prepare and select the separate rebuild folder using 00-course-map/REBUILD-START.md.
+Open Walkthrough Assets in Claude Code; use a separate copy for exercises.
 
 EXACT PROMPT
-Read the course start guide. Keep the finished reference separate. Prepare a fresh rebuild with the supplied planning, design and fictional data, using the rebuild guide. Confirm its folder and Git root. Do not copy the finished app or build yet.
+Open Walkthrough Assets as the project root. Read its README, the brief and the start guide. Explain each folder and how to start the app. Do not change files yet.
 
 WHY THIS PROMPT
 Orientation: find the project before changing it.
 Boundary: reading first prevents accidental setup work.
 
 CHECK BEFORE CONTINUING
-The rebuild has its own Git root and no finished app source.
+The app is in 03-build/clientdesk; the plan is in 01-planning.
 
 IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
@@ -334,20 +334,20 @@ The answer that becomes the brief
 SLIDE 17 | The plan is the product | 0:15–0:16 (1 min)
 
 SAY
-A reviewed follow-up can mean an email or a saved task. We need to name the result. Alex reviews the title, client, supporting meeting, owner and date before saving. A requested checklist is a meeting fact. Its owner and due date remain unknown until Alex chooses them. The supplied scope keeps the later client, calendar, import, chat and skill milestones visible without building them now. Read the resulting brief before approving it.
+This is the bridge from conversation to a reusable project document. I am making the product decisions. Claude is organizing them into something we can inspect and hand back to it later. Specificity: names the user and result. Exclusions: prevent plausible but unnecessary features.
 
 ON SCREEN
 Answer Claude’s questions, then paste this decision summary.
 
 EXACT PROMPT
-Alex needs ClientDesk: read Northstar’s sourced meeting, review a task, choose its owner/date, save once and find it after reload. Keep facts beside proposals. Use the supplied full-course scope. Exclude billing, campaigns and sending. Draft 01-planning/BRIEF.md for review.
+Use these decisions: Alex is a solo consultant. The first job is preparing a reviewed follow-up after Northstar’s call. Show the meeting evidence beside the proposed task. Exclude billing, campaigns, and automatic outreach. Draft 01-planning/BRIEF.md for my review.
 
 WHY THIS PROMPT
 Specificity: names the user and result.
 Exclusions: prevent plausible but unnecessary features.
 
 CHECK BEFORE CONTINUING
-The brief ends with a saved, reloadable task and retains the supplied full-course scope.
+01-planning/BRIEF.md describes the same job and exclusions in plain English.
 
 IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
@@ -527,27 +527,27 @@ IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
 
 TRANSITION
-The reference checkpoint before class
+A workspace check before building
 
-## 27. The reference checkpoint before class
+## 27. A workspace check before building
 
 SLIDE 27 | The plan is the product | 0:29–0:30 (1 min)
 
 SAY
-This prompt starts the finished reference. A new rebuild has no package.json or lockfile yet, so npm ci cannot run there. Install the reference before class and verify it. The local chat example requires port 4310. Stop one app before starting the other on that port, or use the hosted reference alongside the local rebuild. During a long generation, show the prepared reference and discuss the acceptance checks.
+A prerequisite is simply something the demo needs before it can run. We check it now so the exercise does not turn into a login troubleshooting session. The prepared sample data keeps the classroom moving. Readiness: use the project’s actual instructions. Clarity: surface one concrete blocker before the lab.
 
 ON SCREEN
-Complete this reference setup before class. Stop it before starting the rebuild on the same port.
+Complete this setup before class. In class, show the passing checkpoint.
 
 EXACT PROMPT
-In the finished reference folder, read 00-course-map/START-HERE.md. Check Node 24, install locked dependencies, prepare the demo data and run the documented checks. Start the reference on port 4310. Report blockers. Do not run this setup in an empty rebuild.
+Read 00-course-map/START-HERE.md. Check Node, install the locked dependencies in 03-build/clientdesk, prepare the demo context, and run the documented checks. Start the app on port 4310. Explain any blocker before continuing.
 
 WHY THIS PROMPT
 Readiness: use the project’s actual instructions.
 Clarity: surface one concrete blocker before the lab.
 
 CHECK BEFORE CONTINUING
-The reference opens locally. The rebuild remains a separate project.
+Northstar opens at localhost:4310 and the current demo date is in 00-course-map/DEMO_CONTEXT.md.
 
 IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
@@ -627,14 +627,14 @@ ON SCREEN
 Show CLAUDE.md in the project file list. Paste the request into Claude Code.
 
 EXACT PROMPT
-Read the brief and supplied reference specification. Create a short README and CLAUDE.md with the project purpose, planned file locations, Node 24, start command, checks and review boundaries. Label commands as planned until implemented. Update them after the first passing build.
+Read 01-planning/BRIEF.md, 01-planning/SPEC.md if present, and README.md. Create or update CLAUDE.md with the project purpose, file locations, start command, checks, and what requires human review. Keep it short and remove anything that merely repeats another file.
 
 WHY THIS PROMPT
 Context: uses the files that actually exist.
 Maintenance: keeps instructions short enough to review.
 
 CHECK BEFORE CONTINUING
-Instructions distinguish planned commands from commands that actually pass.
+The file points to the real start and check commands.
 
 IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
@@ -1081,10 +1081,10 @@ SAY
 Initialize a repository in the intended folder. Stage specific files, inspect the staged diff, then commit. Avoid blindly staging a directory that may contain real transcripts or credentials. The learner kit contains fictional data.
 
 ON SCREEN
-Verify the exact Git root. A folder inside another repository needs its own root for this isolated exercise.
+Demonstrate in a fresh teaching copy. If it is already a repository, skip git init. Explain each command before executing it.
 
 EXACT PROMPT
-Confirm that Git’s root is this rebuild folder, not an enclosing project. Initialize a separate repository if needed. Exclude secrets and local data. Show the plan and design files to include, then save their reviewed local checkpoint.
+Save a local checkpoint of the agreed plan. Check whether this folder already uses Git. Show me the files you will include, exclude secrets and local data, then commit the reviewed files with a clear message.
 
 CHECK BEFORE CONTINUING
 Result: a named checkpoint we can return to. Claude chooses the required Git commands.
@@ -1275,7 +1275,7 @@ SAY
 This request narrows the scope to one milestone and requires evidence. It lets Claude decide ordinary code details while preventing it from silently implementing the entire backlog. The milestone is complete when the behavior can be demonstrated.
 
 ON SCREEN
-Use the separate rebuild on port 4310. Stop the local reference first, or keep the hosted reference available.
+Use a separate working copy. Keep the finished reference on port 4310.
 
 EXACT PROMPT
 Read 01-planning/SPEC.md and 01-planning/MILESTONES.md. Build the first client workflow in 03-build/clientdesk with fictional records: meeting evidence, an editable follow-up, review, and save. Run the agreed checks and show the result in the browser. Stop before adding live services.
@@ -1284,7 +1284,7 @@ CHECK BEFORE CONTINUING
 While Claude works, inspect the acceptance checks and prepared reference.
 
 IF THE DEMO STALLS
-Open the prepared first-loop checkpoint or hosted reference. Explain that its code has already finished generating. Resume the build after class.
+At six minutes, if the slice is still building, show the completed reference and name the unfinished work. Do not present it as the new build’s result.
 
 TRANSITION
 Read the build result like a reviewer
@@ -1557,20 +1557,20 @@ Create your Supabase project
 SLIDE 73 | Build it for real | 1:25:30–1:26:30 (1 min)
 
 SAY
-The first local build may use SQLite. Creating a Supabase project does not automatically connect that new app to it. In a rebuild, ask Claude to create the storage adapter, anonymous identity handling, versioned migrations and access verification before cloud setup. Review the generated files. Apply only this implementation’s migrations to its dedicated teaching database. The reference already contains its two recorded migrations; a different implementation may produce different files. Keep the local working checkpoint until the hosted storage check passes.
+Use your own project and record its reference. The migrations define the workspace table, ownership rules and expected data shape. Do not paste a fragment from a slide. Open and apply each full file. Anonymous sign-in creates a real authenticated identity without asking for a name or email; losing that browser identity can lose access to the practice workspace.
 
 ON SCREEN
-The reference already includes database code and two migrations. A fresh rebuild must implement and review its own database checkpoint before applying SQL.
+In your own Supabase account create a project. Use its SQL Editor for the two complete migration files, then Authentication settings to enable anonymous sign-ins.
 
 EXACT PROMPT
-Before cloud setup, inspect this rebuild. Implement the spec’s Supabase storage, anonymous identity, migrations and access-check script if missing. Show and review those files. Then configure a dedicated teaching project, apply its migrations in order and test two isolated identities.
+Help me create a dedicated Supabase project for this fictional CRM. Apply both SQL migration files from the app’s supabase/migrations folder in filename order. Enable anonymous sign-ins. Verify that two visitor identities cannot read or change each other’s workspace.
 
 WHY THIS PROMPT
 Order: applies the recorded database setup.
 Isolation: checks who can access records.
 
 CHECK BEFORE CONTINUING
-Required files exist; migrations apply in order; two-identity database checks pass. Local SQLite checks alone are insufficient.
+Both migrations succeed and the two-identity access check passes.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -1653,14 +1653,14 @@ ON SCREEN
 Inspect scripts/clientdesk.ts, scripts/mcp.mjs and scripts/http-session.mjs in the reference app; implement their responsibilities in the rebuild.
 
 EXACT PROMPT
-Build the ClientDesk CLI and MCP interface from the spec. Reuse the workspace API and shared tool identity. Expose client_evidence and sourced brief preparation. Accept client IDs or unambiguous names. Test Northstar, an unknown client and missing meetings through the real CLI and MCP protocol.
+Build the ClientDesk CLI and MCP server described in the spec. Reuse the app’s workspace API and identity handling. Support reading client evidence and preparing a sourced brief. Test the normal case, an unknown client and missing meeting data.
 
 WHY THIS PROMPT
 Reuse: keeps one source of app behavior.
 Cases: proves the interface handles uncertainty.
 
 CHECK BEFORE CONTINUING
-CLI and MCP share their practice workspace, preserve sources and unknowns, and expose the documented tool names.
+The CLI and MCP return the same evidence in their shared practice workspace.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -1676,17 +1676,17 @@ SAY
 The configuration tells Claude how to start our MCP server. This is different from a service password. Dependencies must already be installed in the app folder. If connection fails, check the root folder, Node, dependencies and running app before changing the prompt.
 
 ON SCREEN
-The reference entry is scripts/mcp.mjs. A rebuild may use another path; its .mcp.json, README and actual file must agree. Restart the session after configuration changes.
+From the project root inspect .mcp.json. It uses node, args 03-build/clientdesk/scripts/mcp.mjs, and CLIENTDESK_URL http://127.0.0.1:4310. Restart the Claude session after configuration changes.
 
 EXACT PROMPT
-Check that the app is running. Review this implementation’s project-root .mcp.json and actual MCP entry file. Start a fresh Claude Code session from this project root, approve the trusted local server, and verify ClientDesk and client_evidence are connected in /mcp.
+Check that the app is running. Review the project-root .mcp.json and point its ClientDesk entry at our app’s scripts/mcp.mjs. Start Claude Code from this project root, approve the trusted server, and verify ClientDesk is connected in /mcp.
 
 WHY THIS PROMPT
 Location: makes relative paths resolve.
 Verify: tests the connection before a question.
 
 CHECK BEFORE CONTINUING
-/mcp reports the actual project server connected; client_evidence is available.
+/mcp lists ClientDesk as connected and exposes client_evidence.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -1903,7 +1903,7 @@ SAY
 A useful defect report tells me what the user could not do. We are not asking Claude to make an arbitrary visual improvement. We are giving it a repeatable problem and a visible finish line. Reproduction: names the condition and blocked action. Comparison: holds the width and journey constant.
 
 ON SCREEN
-Navigate to Northstar in the running app. The supplied reference uses /?view=client&client=northstar; a rebuild may use a different route. There is no hidden cramped-mode parameter.
+Use the working navy app at /?view=client&client=northstar. Report an observed problem; there is no hidden cramped-mode parameter.
 
 EXACT PROMPT
 At 390 pixels wide, inspect the Northstar page and reach Review with the keyboard. If an action is blocked, capture it, explain the cause, fix it and repeat the same path. If it works, record the passing evidence instead of inventing a defect.
@@ -2158,20 +2158,20 @@ Run the checks before deployment
 SLIDE 100 | Build it for real | 2:10:30–2:11:30 (1 min)
 
 SAY
-A build can pass while the live demo stops working. In the independent rebuild, a production build and a second test server shared the running server’s output directory. The browser returned a 404 until that interference was fixed. Ask Claude to separate those outputs or stop and restart the server safely. Preserve the saved data. After checks pass, reopen the same client in the same browser and confirm the task is still there. The supplied reference and a newly generated version can use different internal arrangements.
+Tests are repeatable questions we ask the app. The HTTP check sends actual requests to the running local server. A passing test suite still needs a browser review. New hosting settings require another check at the deployed URL.
 
 ON SCREEN
-Run the documented scripts from the app folder. Confirm how this implementation isolates build output before running concurrent servers.
+Keep the app server in one terminal and run checks in another. Open 04-verification for the expected checks and receipts.
 
 EXACT PROMPT
-Run the app’s tests, typecheck, build and HTTP checks. Keep test/build output separate from the running demo, or stop it safely first. Fix failures and repeat affected checks. Restart the demo and verify the same saved task after reload before deploying.
+Run npm test, npm run typecheck and npm run build in the app folder. With the local app running, run npm run test:http. Explain failures, fix their cause, and repeat the affected checks before deploying.
 
 WHY THIS PROMPT
 Layers: checks data, types, build and real requests.
 Evidence: distinguishes passing code from a passing screen.
 
 CHECK BEFORE CONTINUING
-Checks pass and the existing browser workspace still opens with its saved task.
+All four checks pass; the browser journey also works.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -2232,10 +2232,10 @@ Ask Claude about the client
 SLIDE 103 | Build it for real | 2:20:30–2:24:30 (4 min)
 
 SAY
-Here is the payoff: I can ask about one client and get a short answer tied to the meeting. I check the source instead of treating the answer as authority. The reply distinguishes the request from the decisions still to make. Now let us look at the small command behind that interaction. This is a reference demonstration. In a fresh rebuild the chat panel does not exist yet. Implement the bridge in the following section, enable its local setting, then return to this exact question.
+Here is the payoff: I can ask about one client and get a short answer tied to the meeting. I check the source instead of treating the answer as authority. The reply distinguishes the request from the decisions still to make. Now let us look at the small command behind that interaction.
 
 ON SCREEN
-Demonstrate the prepared reference chat here. For the rebuild, run this question after implementing and enabling the bridge on slide 108.
+Open Ask Claude on localhost, select Northstar and send this one question.
 
 EXACT PROMPT
 What did Maya request? Cite the meeting source ID. What did the meeting leave undecided? Keep it to three short bullets.
@@ -2495,20 +2495,20 @@ The program that handles chat
 SLIDE 115 | Build it for real | 2:37–2:38 (1 min)
 
 SAY
-This prompt describes behavior we can observe. The guide supplies the exact package, version and settings. Approved means the app supplies the private service credential and the visitor supplies the course code. A checked answer means our program confirms Claude finished successfully and returned a usable result. It does not guarantee every fact is correct: we still compare the answer with its meeting source. Ask Claude to run the supplied tests and explain their results in ordinary language. The rebuild must create the login helper used by the following slides. Refer to the guide’s file responsibilities and acceptance checks, not files that only exist in the finished reference.
+This prompt describes behavior we can observe. The guide supplies the exact package, version and settings. Approved means the app supplies the private service credential and the visitor supplies the course code. A checked answer means our program confirms Claude finished successfully and returned a usable result. It does not guarantee every fact is correct: we still compare the answer with its meeting source. Ask Claude to run the supplied tests and explain their results in ordinary language.
 
 ON SCREEN
 Open the worker Dockerfile, src/claude.ts, src/server.ts and src/guard.ts. Compare with 05-deployment/HOSTED-CLAUDE-CHAT.md.
 
 EXACT PROMPT
-Build hosted chat from the guide: worker, Dockerfile, saved-login helper, tests, app-to-worker route and access-code UI. Send only the selected client’s records and question. Check answers; disable tools and writes. Test cancellation, timeout, access checks and persistent usage limits.
+Create the chat helper in 03-build/clientdesk-chat using the hosted chat guide. Give it only the selected client’s records and question. Let approved requests reach Claude and return a checked answer. Prevent it from changing files or saving tasks. Add a Stop button, a time limit and usage limits.
 
 WHY THIS PROMPT
 Clear job: answers one client question.
 Boundaries: controls access and actions.
 
 CHECK BEFORE CONTINUING
-Worker, login helper, app adapter, access-code UI and tests exist. Verify both ends before a real Railway answer.
+A question returns an answer. Invalid requests fail. Stop cancels the work.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -2553,14 +2553,14 @@ ON SCREEN
 Ask Claude to install the Railway CLI, sign in and link the worker folder to the intended service. Verify with railway status. Then run railway ssh node scripts/login.mjs and complete its browser authorization.
 
 EXACT PROMPT
-Review the login helper created with our worker. Help me sign in to the intended Claude account on Railway. Keep login in the saved /data folder. Test a real answer, deploy the helper again, then repeat the question to confirm login survives.
+Help me sign in to the intended Claude account on Railway using the supplied login helper. Keep the login in the saved /data folder. Ask a sample question and check the answer. Deploy the helper again, then repeat the question to confirm it still works.
 
 WHY THIS PROMPT
 Right computer: signs in where Claude runs.
 Repeat check: confirms an update keeps access.
 
 CHECK BEFORE CONTINUING
-The reviewed login helper exists and a real answer works before and after redeployment.
+A real answer works before and after deploying the helper again.
 
 IF THE DEMO STALLS
 Open the named file in the completed reference. Identify the unfinished step in your rebuild and record it before continuing.
@@ -3240,16 +3240,16 @@ A teammate starts from a known version
 SLIDE 150 | Create, iterate, and distribute skills | 3:34–3:35 (1 min)
 
 SAY
-The participant repository is public and includes the runnable reference, lockfiles, setup instructions and current slides. Clone it or extract the kit, open its project root, and follow the documented Node 24 setup. Record the current commit. This checks a released implementation. Keep a separate folder for an independent rebuild from planning inputs.
+The released app should include a lockfile and documented prerequisites. The teaching kit uses built-in Node modules, so its README gives the simpler start command. For a real release, test the exact installation steps on a clean machine.
 
 ON SCREEN
-Use the published participant repository. Record the current commit before setup. Keep this reference clone separate from the rebuild.
+Use a prepared private demo repository. Replace the placeholder URL with its real address in the teaching copy; do not invent a public course repository.
 
 EXACT PROMPT
-Clone https://github.com/promptadvisers/claude-code-next-steps or open the supplied kit. Read BEFORE-YOU-JOIN.md and 00-course-map/START-HERE.md. Complete setup, start Claude Code at the root and run /client-brief with northstar and the prepared date.
+Open the supplied Walkthrough Assets folder or clone the instructor’s reviewed repository. Read 00-course-map/START-HERE.md and follow its setup. Start Claude Code at the root and run /client-brief with Northstar and the prepared date.
 
 CHECK BEFORE CONTINUING
-Use the public course repository or the supplied kit. Record its commit before starting.
+Use the supplied folder today. A repository URL and real version are supplied only for a published team release.
 
 IF THE DEMO STALLS
 Use the corresponding file in the completed Walkthrough Assets reference. State which live step is unfinished and record it before moving on.
